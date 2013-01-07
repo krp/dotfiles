@@ -9,58 +9,53 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 set laststatus=2                " Always show status line
-"let g:mapleader = "\"
+"let g:mapleader = "\"          " Use \ as leader key. Disabled.
 set encoding=utf-8              " Necessary for unicode glyphs
 set t_Co=256                    " 256 color terminal support
-"let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy' " Requires a patched font.
 "let g:Powerline_symbols = 'unicode'
 let g:Powerline_symbols = 'compatible'
 
 
 
-syntax enable
-filetype indent plugin on      " Enable indent plugin
-set modeline
+syntax enable                  " Enable syntax highlighting
+filetype indent plugin on      " Indent based on filetypes
 
-set tabstop=8
-set expandtab
-set softtabstop=4
-set shiftwidth=4
-filetype plugin on             " Enable 
-"set ofu=syntaxcomplete#Complete
-set linespace=3
 
-" Temporarily disable arrow keys to ween myself off them
-" noremap <Up> <nop>
-" noremap <Down> <nop>
-" noremap <Left> <nop>
-" noremap <Right> <nop>
+set modeline                   " Enable the use of modelines
+set tabstop=8                  " Number of columns 'Tabstops' should use
+set expandtab                  " Convert tabs to spaces
+set softtabstop=4              " Number of columns to use when pressing Tab
+set shiftwidth=4               " When shifting using << or >>, shift by this many
+filetype plugin on             " Recognize filetypes 
+"set ofu=syntaxcomplete#Complete " Omnifunc Completion
+set linespace=3                " Used for GUI to specify space between lines
 
-" Set 'jj' to Esc
+
+" Pressing 'jj' in insert mode will hit Escape.
 inoremap jj <Esc>
 
 
 " Eliminate windows line endings: %s/<Ctrl-V><Ctrl-M>//g
 
-let mapleader = ' '             " Bind <leader> to space.
-" Fast saving
+let mapleader = ' '             " Bind <leader> key to space.
+" Fast saving. Press leader+w to write changes to file
 nmap <leader>w :w!<cr>
-" Fast editing of the .vimrc
+" Fast editing of the .vimrc. Press leader+e to edit vimrc.
 map <leader>e :e! $MYVIMRC<cr>
-"nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> " Steve Losh's binding for
-"above command. Opens it in a new split window.
 
-" Vertically split window switch cursor focus
+" Vertically split window switch cursor focus with leader+v.
 nnoremap <leader>v <C-w>v<C-w>l
-" Split navigation
+" Navigate splits easily using Ctrl+hjkl.
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+" Open MiniBufExplorer with leader+m.
 map <leader>m :MiniBufExplorer<cr>
-" " When vimrc is edited, reload it
+" When vimrc is edited and saved, automatically reload it
  autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Disable italic/etc attributes from color schemes
@@ -68,23 +63,24 @@ map <leader>m :MiniBufExplorer<cr>
 " set cterm=NONE
 " set term=NONE
 
+" GUI options
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
-
 
 
 " gmarik's stuff
 set history=256                 " Number of things to remember in history.
 set autowrite                   " Writes on make/shell commands
 set autoread  
-set timeoutlen=500                " Time to wait after ESC, 0 bugs out some keypresses
+set timeoutlen=500              " Time to wait after ESC, 0 bugs out some keypresses
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
 set hlsearch                    " highlight search
-" map <leader>h :nohlsearch " Toggle hlsearch off
+" Toggle hlsearch off with leader+h, or just type :noh.
+map <leader>h :nohlsearch
 set ignorecase                  " Do case insensitive matching with
-set smartcase                   " Be sensitive when there's a capital letter
+set smartcase                   " Be sensitive when word begins with a capital letter
 set incsearch                   " Incremental search - show matching patterns as you type
 set backspace=indent,eol,start  " more powerful backspacing
 
@@ -93,8 +89,8 @@ set backspace=indent,eol,start  " more powerful backspacing
 
 " Enable wrapping with:
  set wrap
- set linebreak " only wrap at a character in 'breakat' option
- set nolist " disables adding linebreaks where there shouldn't be any
+ set linebreak                   " Only wrap at a character in 'breakat' option
+ set nolist                      " Disables adding linebreaks where there shouldn't be any
  set wrapmargin=0
 
 " Some of Steve Losh's settings
@@ -134,8 +130,7 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" Disable help on F1 keypress. Avoids accidentally hitting it when you press
-" Esc.
+" Disable help on F1 keypress. Avoids accidentally hitting it if you press Esc.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -209,9 +204,9 @@ Bundle 'evanmiller/nginx-vim-syntax'
 " UltiSnips (has youtube videos)
 "
 " Supertab
-Bundle 'ervandew/supertab'
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
+"Bundle 'ervandew/supertab'
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
 
 " SLIME for vim
 "Bundle 'jpalardy/vim-slime'
@@ -235,16 +230,14 @@ inoremap <silent> <F3> <ESC>:YRShow<cr>
 Bundle 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<cr>
 
-
 " Vim-orgmode
 "Bundle 'jceb/vim-orgmode'
 
-
 " Snipmate (and dependencies)
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'honza/snipmate-snippets'
+"Bundle 'garbas/vim-snipmate'
 
 
 
@@ -253,179 +246,11 @@ Bundle 'garbas/vim-snipmate'
 
 
 " Steve Losh recommends Sparkup for html completion
- " non github repos
+" non github repos
 " Bundle 'git://git.wincent.com/command-t.git
 
 " MakeGreen
 "Bundle 'reinh/vim-makegreen'
-
-
-
-
-" Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
-
-" Make GUI use console colors
-" set background=dark
-" hi SpecialKey guifg=Blue
-" hi MoreMsg guifg=Green
-" hi Visual guifg=NONE guibg=NONE
-" hi Folded ctermbg=4 guibg=Blue
-" hi FoldColumn ctermbg=7
-" hi DiffAdd guibg=Blue
-" hi DiffChange guibg=Magenta
-" hi DiffDelete guibg=Cyan
-" hi Normal guifg=Gray guibg=Black
-" hi Cursor guibg=White
-" hi lCursor guibg=White
-" hi Comment guifg=Cyan
-" hi Constant guifg=Magenta
-" hi Special guifg=Red
-" hi Identifier guifg=Cyan
-" hi Statement guifg=Yellow
-" hi PreProc guifg=Blue
-" hi Type guifg=Green
-" hi Underlined guifg=Blue
-" hi Todo guifg=Black
-
-
-" " Function which strips all bold from colorschemes. May need an if() for terminals.
-" function! Highlight_remove_attr(attr)
-"     " save selection registers
-"     new
-"     silent! put
-" 
-"     " get current highlight configuration
-"     redir @x
-"     silent! highlight
-"     redir END
-"     " open temp buffer
-"     new
-"     " paste in
-"     silent! put x
-" 
-"     " convert to vim syntax (from Mkcolorscheme.vim,
-"     "   http://vim.sourceforge.net/scripts/script.php?script_id=85)
-"     " delete empty,"links" and "cleared" lines
-"     silent! g/^$\| links \| cleared/d
-"     " join any lines wrapped by the highlight command output
-"     silent! %s/\n \+/ /
-"     " remove the xxx's
-"     silent! %s/ xxx / /
-"     " add highlight commands
-"     silent! %s/^/highlight /
-"     " protect spaces in some font names
-"     silent! %s/font=\(.*\)/font='\1'/
-" 
-"     " substitute bold with "NONE"
-"     execute 'silent! %s/' . a:attr . '\([\w,]*\)/NONE\1/geI'
-"     " yank entire buffer
-"     normal ggVG
-"     " copy
-"     silent! normal "xy
-"     " run
-"     execute @x
-" 
-"     " remove temp buffer
-"     bwipeout!
-" 
-"     " restore selection registers
-"     silent! normal ggVGy
-"     bwipeout!
-" endfunction
-" autocmd BufNewFile,BufRead * call Highlight_remove_attr("bold")
-" " Note adding ,Syntax above messes up the syntax loading
-" " See :help syntax-loading for more info
-
-
-
-
-" Colorschemes (Nice ones worth keeping):
-" anotherdark
-" asu1dark
-" autumn
-" autumn2
-" autumnleaf
-" baycomb
-" bclear
-" brookstream
-" candycode
-" chela_light
-" colorer
-" dante
-" darkspectrum
-" dawn
-" delek
-" desertEx
-" dw_green
-" dw_orange
-" dw_yellow
-" earendel
-" evening (for bg colors)
-" fineblue (not seeing any difference w/ fineblue2
-" fnaqevan (good base)
-" fruit
-" habilight
-" herald
-" molokai
-" delete moria (it sucks and is incomplete)
-" motus
-" mustang
-" neon vs habilight, appears to be some negative spacing on 'n' characters
-" nuvola
-" print_bw
-" pyte
-" railscasts (and 2)
-" rdark
-" settlemyer
-" sienna
-" silent (cool line highlighting)
-" simpleandfriendly (cool underlining of current line)
-" slate
-" summerfruit256
-" tango
-" tango2
-" taqua (nice string colors)
-" vc
-" vibrantink
-" vividchalk (same as vibrantink, but colors the data types)
-" wombat256
-" xemacs
-"
-" Worth Keeping :
-" anotherdark
-" candycode
-" chela_light
-" colorer
-" darkspectrum
-" earendel
-" fruit
-" habilight
-" herald
-" molokai
-" mustang
-" nuvola
-" print_bw
-" railscasts
-" rdark
-" silent
-" solarized
-" summerfruit256
-" tango
-" tango2
-" taqua
-" vibrantink
-" vividchalk
-" wombat256
-"
-"
-"
 
 colorscheme molokai
 
