@@ -18,21 +18,20 @@ let g:Powerline_symbols = 'compatible'
 
 
 
-syntax enable                  " Enable syntax highlighting
-filetype indent plugin on      " Indent based on filetypes
+syntax enable
+filetype indent plugin on      " Enable indent plugin
+set modeline
+
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+filetype plugin on             " Enable 
+"set ofu=syntaxcomplete#Complete
+set linespace=3
 
 
-set modeline                   " Enable the use of modelines
-set tabstop=8                  " Number of columns 'Tabstops' should use
-set expandtab                  " Convert tabs to spaces
-set softtabstop=4              " Number of columns to use when pressing Tab
-set shiftwidth=4               " When shifting using << or >>, shift by this many
-filetype plugin on             " Recognize filetypes 
-"set ofu=syntaxcomplete#Complete " Omnifunc Completion
-set linespace=3                " Used for GUI to specify space between lines
-
-
-" Pressing 'jj' in insert mode will hit Escape.
+" Set 'jj' to Esc
 inoremap jj <Esc>
 
 
@@ -43,6 +42,8 @@ let mapleader = ' '             " Bind <leader> key to space.
 nmap <leader>w :w!<cr>
 " Fast editing of the .vimrc. Press leader+e to edit vimrc.
 map <leader>e :e! $MYVIMRC<cr>
+"nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> " Steve Losh's binding for
+"above command. Opens it in a new split window.
 
 " Vertically split window switch cursor focus with leader+v.
 nnoremap <leader>v <C-w>v<C-w>l
@@ -52,9 +53,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Cycle through buffers
+"map <F2> :bprevious<CR>
+"map <F3> :bnext<CR>
 
-" Open MiniBufExplorer with leader+m.
-map <leader>m :MiniBufExplorer<cr>
+
+" ctags file
+set tags=./tags;$HOME/programming/
+
 " When vimrc is edited and saved, automatically reload it
  autocmd! bufwritepost vimrc source ~/.vimrc
 
@@ -118,15 +124,15 @@ set formatoptions=qrn1 " Wrapping options. See :help fo-table
 "set list " Show invisible characters (tab and EOL)
 "set listchars=tab:▸\ ,eol:¬ " Use these characters to show them. Current font lacks an arrow.
 
-" Stop using arrow keys!
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" Stop using arrow keys! - Enabled for now, to avoid crippling those new to vim
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -158,11 +164,22 @@ Bundle 'tpope/vim-fugitive'
 
 
 Bundle 'Lokaltog/vim-powerline'
+
+Bundle 'Lokaltog/vim-easymotion'
+
 Bundle 'scrooloose/nerdtree'
+"let loaded_nerd_tree=0 " Load NERDTree at startup
+let NERDChrismasTree=1 " Additional syntax highlighting
+let NERDTreeDirArrows=0 " Current font is missing unicode arrows
+map <leader>n :NERDTreeToggle<cr>
+
 Bundle 'scrooloose/nerdcommenter'
+
+Bundle 'scrooloose/syntastic'
+
 " Interactive command features in split window
 " Required for IPython integration
-Bundle 'rosenfeld/conque-term' 
+"Bundle 'rosenfeld/conque-term' 
 " Integrate vim with IPython
 "Bundle 'ivanov/vim-ipython'
 "" Bundle 'Lokaltog/vim-easymotion'
@@ -170,18 +187,21 @@ Bundle 'rosenfeld/conque-term'
 " Bundle 'tpope/vim-rails.git'
 " Adds surround functionality
 Bundle 'tpope/vim-surround' 
+
+" repeat using .
+Bundle 'tpope/vim-repeat'
+
  " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
 "Bundle 'indentpython'
 Bundle 'wincent/Command-T'
 let g:CommandTMaxFiles=50000
 "map <leader>T ??
 
 "Bundle 'JavaRun'
-Bundle 'minibufexpl.vim'
+"Bundle 'minibufexpl.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'YankRing.vim'
 
 Bundle 'krispritchard/molokai.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
@@ -221,8 +241,30 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+let g:rbpt_colorpairs = [
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['magenta',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkyellow',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkblue',       'firebrick3'],
+    \ ['blue',        'RoyalBlue3'],
+    \ ['cyan',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['magenta',    'firebrick3'],
+    \ ['yellow',       'RoyalBlue3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkblue',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+
 "map <leader>R :RainbowParenthesesToggle<cr>
 
+" YankRing - Circular Yank
+Bundle 'YankRing.vim'
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
@@ -234,12 +276,41 @@ nnoremap <F5> :GundoToggle<cr>
 "Bundle 'jceb/vim-orgmode'
 
 " Snipmate (and dependencies)
-"Bundle 'MarcWeber/vim-addon-mw-utils'
-"Bundle 'tomtom/tlib_vim'
-"Bundle 'honza/snipmate-snippets'
-"Bundle 'garbas/vim-snipmate'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
 
 
+Bundle 'spolu/dwm.vim'
+
+" AsyncCommand
+Bundle 'pydave/AsyncCommand'
+
+" MakeGreen
+Bundle 'reinh/vim-makegreen'
+
+" TagList for ctags
+"Bundle 'taglist.vim'
+
+" Tagbar
+Bundle 'majutsushi/tagbar'
+nmap <leader>r :TagbarToggle<cr>
+
+" cscope
+Bundle 'vim-scripts/cscope_macros.vim'
+
+
+" YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'
+set completeopt+=preview
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+
+" ListToggle
+Bundle 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 10
 
 " UltiSnips (alternative to Snipmate)
 " Bundle 'SirVer/ultisnips'
@@ -252,11 +323,175 @@ nnoremap <F5> :GundoToggle<cr>
 " MakeGreen
 "Bundle 'reinh/vim-makegreen'
 
+
+
+
+" Brief help
+ " :BundleList          - list configured bundles
+ " :BundleInstall(!)    - install(update) bundles
+ " :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Bundle command are not allowed..
+
+" Make GUI use console colors
+" set background=dark
+" hi SpecialKey guifg=Blue
+" hi MoreMsg guifg=Green
+" hi Visual guifg=NONE guibg=NONE
+" hi Folded ctermbg=4 guibg=Blue
+" hi FoldColumn ctermbg=7
+" hi DiffAdd guibg=Blue
+" hi DiffChange guibg=Magenta
+" hi DiffDelete guibg=Cyan
+" hi Normal guifg=Gray guibg=Black
+" hi Cursor guibg=White
+" hi lCursor guibg=White
+" hi Comment guifg=Cyan
+" hi Constant guifg=Magenta
+" hi Special guifg=Red
+" hi Identifier guifg=Cyan
+" hi Statement guifg=Yellow
+" hi PreProc guifg=Blue
+" hi Type guifg=Green
+" hi Underlined guifg=Blue
+" hi Todo guifg=Black
+
+
+" " Function which strips all bold from colorschemes. May need an if() for terminals.
+" function! Highlight_remove_attr(attr)
+"     " save selection registers
+"     new
+"     silent! put
+" 
+"     " get current highlight configuration
+"     redir @x
+"     silent! highlight
+"     redir END
+"     " open temp buffer
+"     new
+"     " paste in
+"     silent! put x
+" 
+"     " convert to vim syntax (from Mkcolorscheme.vim,
+"     "   http://vim.sourceforge.net/scripts/script.php?script_id=85)
+"     " delete empty,"links" and "cleared" lines
+"     silent! g/^$\| links \| cleared/d
+"     " join any lines wrapped by the highlight command output
+"     silent! %s/\n \+/ /
+"     " remove the xxx's
+"     silent! %s/ xxx / /
+"     " add highlight commands
+"     silent! %s/^/highlight /
+"     " protect spaces in some font names
+"     silent! %s/font=\(.*\)/font='\1'/
+" 
+"     " substitute bold with "NONE"
+"     execute 'silent! %s/' . a:attr . '\([\w,]*\)/NONE\1/geI'
+"     " yank entire buffer
+"     normal ggVG
+"     " copy
+"     silent! normal "xy
+"     " run
+"     execute @x
+" 
+"     " remove temp buffer
+"     bwipeout!
+" 
+"     " restore selection registers
+"     silent! normal ggVGy
+"     bwipeout!
+" endfunction
+" autocmd BufNewFile,BufRead * call Highlight_remove_attr("bold")
+" " Note adding ,Syntax above messes up the syntax loading
+" " See :help syntax-loading for more info
+
+
+
+
+" Colorschemes (Nice ones worth keeping):
+" anotherdark
+" asu1dark
+" autumn
+" autumn2
+" autumnleaf
+" baycomb
+" bclear
+" brookstream
+" candycode
+" chela_light
+" colorer
+" dante
+" darkspectrum
+" dawn
+" delek
+" desertEx
+" dw_green
+" dw_orange
+" dw_yellow
+" earendel
+" evening (for bg colors)
+" fineblue (not seeing any difference w/ fineblue2
+" fnaqevan (good base)
+" fruit
+" habilight
+" herald
+" molokai
+" delete moria (it sucks and is incomplete)
+" motus
+" mustang
+" neon vs habilight, appears to be some negative spacing on 'n' characters
+" nuvola
+" print_bw
+" pyte
+" railscasts (and 2)
+" rdark
+" settlemyer
+" sienna
+" silent (cool line highlighting)
+" simpleandfriendly (cool underlining of current line)
+" slate
+" summerfruit256
+" tango
+" tango2
+" taqua (nice string colors)
+" vc
+" vibrantink
+" vividchalk (same as vibrantink, but colors the data types)
+" wombat256
+" xemacs
+"
+" Worth Keeping :
+" anotherdark
+" candycode
+" chela_light
+" colorer
+" darkspectrum
+" earendel
+" fruit
+" habilight
+" herald
+" molokai
+" mustang
+" nuvola
+" print_bw
+" railscasts
+" rdark
+" silent
+" solarized
+" summerfruit256
+" tango
+" tango2
+" taqua
+" vibrantink
+" vividchalk
+" wombat256
+"
+"
+"
+
 colorscheme molokai
 
 
 
-"let loaded_nerd_tree=0 " Load NERDTree at startup
-let NERDChrismasTree=1 " Additional syntax highlighting
-let NERDTreeDirArrows=0 " Current font is missing unicode arrows
-map <leader>n :NERDTreeToggle<cr>
