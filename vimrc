@@ -59,6 +59,8 @@ nnoremap <C-l> <C-w>l
 
 
 " ctags file
+" Requires that ctags is installed, and that you run ctags -R in the root of
+" your code directory
 set tags=./tags;$HOME/programming/
 
 " When vimrc is edited and saved, automatically reload it
@@ -298,6 +300,7 @@ Bundle 'majutsushi/tagbar'
 nmap <leader>r :TagbarToggle<cr>
 
 " cscope
+" Requires that you run cscope -R in the root of your code directory.
 Bundle 'vim-scripts/cscope_macros.vim'
 
 
