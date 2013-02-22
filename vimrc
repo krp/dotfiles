@@ -86,7 +86,7 @@ set clipboard+=unnamed          " Yanks go on clipboard instead.
 
 set hlsearch                    " highlight search
 " Toggle hlsearch off with leader+h, or just type :noh.
-map <leader>h :nohlsearch
+map <leader>h :nohlsearch<CR>
 set ignorecase                  " Do case insensitive matching with
 set smartcase                   " Be sensitive when word begins with a capital letter
 set incsearch                   " Incremental search - show matching patterns as you type
