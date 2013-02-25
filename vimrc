@@ -34,6 +34,8 @@ set linespace=3
 " Set 'jj' to Esc
 inoremap jj <Esc>
 
+" Enable mouse scrolling in terminal vim
+set mouse=a
 
 " Eliminate windows line endings: %s/<Ctrl-V><Ctrl-M>//g
 
@@ -272,7 +274,7 @@ inoremap <silent> <F3> <ESC>:YRShow<cr>
 
 " Gundo - Undo Tree
 Bundle 'sjl/gundo.vim'
-nnoremap <F5> :GundoToggle<cr>
+"nnoremap <F5> :GundoToggle<cr>
 
 " Vim-orgmode
 "Bundle 'jceb/vim-orgmode'
@@ -308,6 +310,7 @@ Bundle 'vim-scripts/cscope_macros.vim'
 Bundle 'Valloric/YouCompleteMe'
 set completeopt+=preview
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " ListToggle
 Bundle 'Valloric/ListToggle'
