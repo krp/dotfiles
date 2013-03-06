@@ -180,6 +180,8 @@ map <leader>n :NERDTreeToggle<cr>
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 " Interactive command features in split window
 " Required for IPython integration
@@ -317,6 +319,10 @@ Bundle 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10
+
+" cpplint.py: Download it from
+" http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+Bundle 'funorpain/vim-cpplint'
 
 " UltiSnips (alternative to Snipmate)
 " Bundle 'SirVer/ultisnips'

@@ -4,5 +4,6 @@ vimrc requires Vundle (https://github.com/gmarik/vundle):
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+Read the Syntastic README for information on how to get it working with clang.
 
 
