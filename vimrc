@@ -339,17 +339,15 @@ let g:lt_height = 10
 
 " cpplint.py: Download it from
 " http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
-Bundle 'funorpain/vim-cpplint'
-
-
-Bundle 'terryma/vim-expand-region'
-
-
 " Rebind from <F7>
 " autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
 " Autolint when you save a cpp file - Requires my patches for .hpp extension
 " support.
 "autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
+Bundle 'funorpain/vim-cpplint'
+
+" Expand visual selection by region.
+Bundle 'terryma/vim-expand-region'
 
 " UltiSnips (alternative to Snipmate)
 " Bundle 'SirVer/ultisnips'
