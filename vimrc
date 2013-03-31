@@ -181,7 +181,7 @@ Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+"let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 " Interactive command features in split window
 " Required for IPython integration
@@ -201,8 +201,8 @@ Bundle 'tpope/vim-repeat'
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 "Bundle 'indentpython'
-Bundle 'wincent/Command-T'
-let g:CommandTMaxFiles=50000
+"Bundle 'wincent/Command-T'
+"let g:CommandTMaxFiles=50000
 "map <leader>T ??
 
 "Bundle 'JavaRun'
@@ -266,8 +266,25 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-
 "map <leader>R :RainbowParenthesesToggle<cr>
+
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<leader>t'
+"let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
+nmap <leader>b :CtrlPBuffer<cr>
+
+
+Bundle 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extensions = ['funky']
+
+nnoremap <Leader>fu :CtrlPFunky<cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky '.expand('<cword>')<cr>
+
 
 " YankRing - Circular Yank
 Bundle 'YankRing.vim'
@@ -323,6 +340,16 @@ let g:lt_height = 10
 " cpplint.py: Download it from
 " http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
 Bundle 'funorpain/vim-cpplint'
+
+
+Bundle 'terryma/vim-expand-region'
+
+
+" Rebind from <F7>
+" autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
+" Autolint when you save a cpp file - Requires my patches for .hpp extension
+" support.
+"autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
 
 " UltiSnips (alternative to Snipmate)
 " Bundle 'SirVer/ultisnips'
