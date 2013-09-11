@@ -1,0 +1,221 @@
+! ----------------------------------------------------------------------------                                                                                     
+! file:     ~/.Xresources
+! author:   Kris
+! modified: December 2011
+! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! ----------------------------------------------------------------------------
+
+
+
+! terminal colours
+!*foreground:#a0a0a0
+!*background:#1b1d1e
+
+
+
+
+! makes all fonts tiny
+!Xft.dpi: 63
+! makes all fonts large
+!Xft.dpi: 130
+!Xft.dpi: 94.34
+
+! Xcursor --------------------------------------------------------------------
+
+Xcursor.theme: aero
+!Xcursor.size:  22
+
+
+
+! Xft settings ---------------------------------------------------------------
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+
+! colors (general) --------------------------
+
+!black
+!*color0:    #1b1d1e
+!*color8:    #505354
+
+!!red
+!*color1:    #f92672
+!*color9:    #fc2200
+
+!!green
+!*color2:    #29c900
+!*color10:   #80ff00
+
+!!yellow
+!*color3:    #fd971f
+!*color11:   #ffff33
+
+!!blue
+!*color4:    #0080ff
+!!*color12:   #8cedff
+!*color12:   #4da6ff
+
+!!magenta (purple instead of pink)
+!*color5:   #5800b3
+!*color13:    #a64dff
+
+!!cyan
+!*color6:    #465457
+!*color14:   #899ca1
+
+!!white
+!*color7:    #ccccc6
+!*color15:   #f8f8f2
+
+
+! ----------------------------------------------------------------------
+! colors (belge)
+!
+!black
+!*color0:     #252525
+!*color8:     #454545
+!!red
+!*color1:     #EF6769
+!*color9:     #FC7CA5
+!!green
+!*color2:     #A6E22E
+!*color10:    #B6E354
+!!yellow
+!*color3:     #FD971F
+!*color11:    #FD971F
+!!blue
+!*color4:     #6495ED
+!*color12:    #87CEEB
+!!magenta
+!*color5:     #DEB887
+!*color13:    #996600
+!!cyan
+!*color6:     #B0C4DE
+!*color14:    #87CEEB
+!!white
+!*color7:     #DBDCDC
+!*color15:    #FDFDFD
+
+!URxvt.foreground: Grey
+!URxvt.background: Black
+! ----------------------------------------------------------------------
+
+
+
+*foreground:              #a0a0a0
+!*background:              #1B1D1E
+*background:              #121212
+!black
+*color0:                  #1B1D1E
+*color8:                  #505354
+!red
+*color1:                  #F92672
+*color9:                  #FF5995
+!green
+*color2:                  #82B414
+*color10:                 #B6E354
+!yellow
+*color3:                  #FD971F
+*color11:                 #FEED6C
+!blue
+*color4:                  #4E82AA
+*color12:                 #0C73C2
+!magenta
+*color5:                  #8C54FE
+*color13:                 #9E6FFE
+!cyan
+*color6:                  #465457
+*color14:                 #899CA1
+!white
+*color7:                  #CCCCC6
+*color15:                 #F8F8F2
+
+
+
+! urxvt ----------------------------------------------------------------------
+
+! Transparency
+!URxvt.transparent: true
+!URxvt.shading: 10
+!URxvt.tintColor: Green
+
+! Scrollbar
+URxvt.scrollBar: off
+
+! Home/End Keys
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+!URxvt*keysym.Home: \e[1~
+!URxvt*keysym.End: \e[4~
+
+URxvt*saveLines: 50000
+
+!URxvt.font: xft:Liberation Mono:pixelsize=12
+!URxvt.font: xft:Monaco
+! Bold again looks great, but linux fucks it up. Needs
+! urxvt -letsp 0 -title Herp -geometry 400x20 -sh 10 -fn "xft:Monaco:pixelsize=11" -fb "xft:Termsyn:pixelsize=10"
+!:antialias=true:hinting=true
+!URxvt.letterSpace: -1
+!
+!URxvt.cursorColor:  #00DD00
+URxvt.cursorColor:  #5995ff
+!URxvt.pointerColor: #dc74d1
+URxvt.cursorColor2: #FF00FF
+!URxvt.background:   #0e0e0e
+!URxvt.foreground:   #4ad5e1
+!URxvt.color0:       #000000
+!URxvt.color8:       #8b8f93
+!URxvt.color1:       #dc74d1
+!URxvt.color9:       #dc74d1
+!URxvt.color2:       #0eb8c7
+!URxvt.color10:      #0eb8c7
+!URxvt.color3:       #dfe37e
+!URxvt.color11:      #dfe37e
+!URxvt.color5:       #9e88f0
+!URxvt.color13:      #9e88f0
+!URxvt.color6:       #73f7ff
+!URxvt.color14:      #73f7ff
+!URxvt.color7:       #e1dddd
+!URxvt.color15:      #e1dddd
+
+! URxvt features from urxvt-perls AUR package.
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select                                                                              
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+! Selects URL's in urxvt with Alt-U
+URxvt.keysym.M-u:           perl:url-select:select_next
+! Alt-Esc then vim keys allows visual selection.
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+! Alt-S searches scrollback
+URxvt.keysym.M-s:           perl:keyboard-select:search
+!
+
+URxvt.depth: 32
+!URxvt.background: rgba:2121/2121/2121/aaaa
+URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+
+URxvt.lineSpace: 1
+URxvt.letterSpace: 0
+!URxvt.letterSpace: -2
+URxvt.geometry: 150x40
+!URxvt.geometry: 200x40
+!URxvt.tintColor: gray
+!URxvt.shading: 30
+
+
+
+
+!
+! Fonts that are potentially good. Use on command line to test.
+! Located in /usr/share/fonts/misc/fonts.alias
+! Also use fc-list for font names.
+! -fn stands for normal font, -fb for bold. Ugly without both.
+! urxvt -fn 6x10 fb 6x10
+! 6x12
