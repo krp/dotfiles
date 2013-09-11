@@ -1,12 +1,248 @@
 set nocompatible                " vim only, not vi
 
 " Vundle
-filetype off                    " required for vundle
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+"filetype off                    " required for vundle
+"set runtimepath+=~/.vim/bundle/vundle/
+"call vundle#rc()
 
 " let Vundle manage Vundle (required)
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
+
+" NeoBundle
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+" Bundles
+
+
+" Git wrapper. See github page.
+NeoBundle 'tpope/vim-fugitive'
+
+"Bundle 'Lokaltog/vim-powerline'
+
+" Enhanced motion navigation
+NeoBundle 'Lokaltog/vim-easymotion'
+
+" Dark color scheme
+"NeoBundle 'Lokaltog/vim-distinguished'
+
+NeoBundle 'scrooloose/nerdtree'
+"let loaded_nerd_tree=0 " Load NERDTree at startup
+let NERDChrismasTree=1 " Additional syntax highlighting
+let NERDTreeDirArrows=0 " Current font is missing unicode arrows
+map <leader>n :NERDTreeToggle<cr>
+
+NeoBundle 'scrooloose/nerdcommenter'
+
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_python_checkers=['none']
+"let g:syntastic_cpp_compiler_options = '-std=c++11'
+
+" Interactive command features in split window
+" Required for IPython integration
+"Bundle 'rosenfeld/conque-term' 
+" Integrate vim with IPython
+"Bundle 'ivanov/vim-ipython'
+"" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'tpope/vim-rails.git'
+" Adds surround functionality
+NeoBundle 'tpope/vim-surround' 
+
+" repeat using .
+NeoBundle 'tpope/vim-repeat'
+
+ " vim-scripts repos
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+"Bundle 'indentpython'
+"Bundle 'wincent/Command-T'
+"let g:CommandTMaxFiles=50000
+"map <leader>T ??
+
+"Bundle 'JavaRun'
+"Bundle 'minibufexpl.vim'
+NeoBundle 'mileszs/ack.vim'
+
+NeoBundle 'krispritchard/molokai.vim'
+NeoBundle 'evanmiller/nginx-vim-syntax'
+
+
+" Clang-Complete
+"Bundle 'Rip-Rip/clang_complete'
+"set completeopt=menu,menuone,longest
+
+" Bundle 'Scratch - find appropriate plugin'
+
+" Python-mode. Additional python features.
+NeoBundle 'klen/python-mode'
+let g:pymode_lint_checker = "pyflakes"
+let g:pymode_run_key = '<leader>a'
+let g:pymode_folding = 0
+
+
+" threesome.vim
+" tslime.vim
+" pythonmode
+" tpope's github
+" UltiSnips (has youtube videos)
+"
+" Supertab
+"Bundle 'ervandew/supertab'
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+
+" SLIME for vim
+"Bundle 'jpalardy/vim-slime'
+"let g:slime_target = "tmux"
+"
+" Rainbow Parentheses klen != kien
+" 
+NeoBundle 'kien/rainbow_parentheses.vim'
+" Always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:rbpt_colorpairs = [
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['magenta',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkyellow',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkblue',       'firebrick3'],
+    \ ['blue',        'RoyalBlue3'],
+    \ ['cyan',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['magenta',    'firebrick3'],
+    \ ['yellow',       'RoyalBlue3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkblue',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+"map <leader>R :RainbowParenthesesToggle<cr>
+
+NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<leader>t'
+"let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
+nmap <leader>y :CtrlPBuffer<cr>
+
+
+NeoBundle 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extensions = ['funky']
+
+nnoremap <Leader>fu :CtrlPFunky<cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky '.expand('<cword>')<cr>
+
+
+" YankRing - Circular Yank
+NeoBundle 'YankRing.vim'
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+" Gundo - Undo Tree
+NeoBundle 'sjl/gundo.vim'
+"nnoremap <F5> :GundoToggle<cr>
+
+" Vim-orgmode
+"Bundle 'jceb/vim-orgmode'
+
+" Snipmate (and dependencies)
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
+" Bundle 'honza/snipmate-snippets'
+" Bundle 'garbas/vim-snipmate'
+
+
+NeoBundle 'spolu/dwm.vim'
+
+" AsyncCommand
+NeoBundle 'pydave/AsyncCommand'
+
+" MakeGreen
+NeoBundle 'reinh/vim-makegreen'
+
+" TagList for ctags
+"Bundle 'taglist.vim'
+
+" Tagbar
+NeoBundle 'majutsushi/tagbar'
+nmap <leader>r :TagbarToggle<cr>
+
+" cscope
+" Requires that you run cscope -R in the root of your code directory.
+NeoBundle 'vim-scripts/cscope_macros.vim'
+
+
+" YouCompleteMe
+NeoBundle 'Valloric/YouCompleteMe'
+set completeopt+=preview
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" ListToggle
+NeoBundle 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 10
+
+" cpplint.py: Download it from
+" http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+" Rebind from <F7>
+" autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
+" Autolint when you save a cpp file - Requires my patches for .hpp extension
+" support.
+"autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
+NeoBundle 'funorpain/vim-cpplint'
+
+" Expand visual selection by region.
+" Custom bindings
+" map K <Plug>(expand_region_expand)
+" map J <Plug>(expand_region_shrink)
+NeoBundle 'terryma/vim-expand-region'
+
+
+NeoBundle 'Glench/Vim-Jinja2-Syntax'
+
+
+" silver_searcher
+NeoBundle 'rking/ag.vim'
+
+NeoBundle 'CCTree'
+" UltiSnips (alternative to Snipmate)
+" Bundle 'SirVer/ultisnips'
+
+
+" Steve Losh recommends Sparkup for html completion
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git
+
+" MakeGreen
+"Bundle 'reinh/vim-makegreen'
+
+
+filetype plugin indent on      " Enable indent plugin - Required by NeoBundle/Vundle
 
 set laststatus=2                " Always show status line
 "let g:mapleader = "\"          " Use \ as leader key. Disabled.
@@ -19,7 +255,6 @@ let g:Powerline_symbols = 'compatible'
 
 
 syntax enable
-filetype indent plugin on      " Enable indent plugin
 set modeline
 
 set tabstop=4
@@ -158,219 +393,6 @@ nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
 comm! W exec 'w !sudo tee % > /dev/null' | e!
 
 
-
-" My Bundles here:
- "
- " original repos on github
-" Git wrapper. See github page.
-Bundle 'tpope/vim-fugitive'
-
-
-
-Bundle 'Lokaltog/vim-powerline'
-
-Bundle 'Lokaltog/vim-easymotion'
-
-Bundle 'scrooloose/nerdtree'
-"let loaded_nerd_tree=0 " Load NERDTree at startup
-let NERDChrismasTree=1 " Additional syntax highlighting
-let NERDTreeDirArrows=0 " Current font is missing unicode arrows
-map <leader>n :NERDTreeToggle<cr>
-
-Bundle 'scrooloose/nerdcommenter'
-
-Bundle 'scrooloose/syntastic'
-let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
-
-" Interactive command features in split window
-" Required for IPython integration
-"Bundle 'rosenfeld/conque-term' 
-" Integrate vim with IPython
-"Bundle 'ivanov/vim-ipython'
-"" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" Adds surround functionality
-Bundle 'tpope/vim-surround' 
-
-" repeat using .
-Bundle 'tpope/vim-repeat'
-
- " vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'indentpython'
-"Bundle 'wincent/Command-T'
-"let g:CommandTMaxFiles=50000
-"map <leader>T ??
-
-"Bundle 'JavaRun'
-"Bundle 'minibufexpl.vim'
-Bundle 'mileszs/ack.vim'
-
-Bundle 'krispritchard/molokai.vim'
-Bundle 'evanmiller/nginx-vim-syntax'
-
-" Clang-Complete
-"Bundle 'Rip-Rip/clang_complete'
-"set completeopt=menu,menuone,longest
-
-" Bundle 'Scratch - find appropriate plugin'
-
-" Python-mode. Additional python features.
-"Bundle 'klen/python-mode'
-"let g:pymode_lint_checker = "pyflakes"
-
-
-" threesome.vim
-" tslime.vim
-" pythonmode
-" tpope's github
-" UltiSnips (has youtube videos)
-"
-" Supertab
-"Bundle 'ervandew/supertab'
-"au FileType python set omnifunc=pythoncomplete#Complete
-"let g:SuperTabDefaultCompletionType = "context"
-
-" SLIME for vim
-"Bundle 'jpalardy/vim-slime'
-"let g:slime_target = "tmux"
-"
-" Rainbow Parentheses klen != kien
-" 
-Bundle 'kien/rainbow_parentheses.vim'
-" Always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-let g:rbpt_colorpairs = [
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['magenta',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['darkyellow',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkblue',       'firebrick3'],
-    \ ['blue',        'RoyalBlue3'],
-    \ ['cyan',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['magenta',    'firebrick3'],
-    \ ['yellow',       'RoyalBlue3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkblue',    'SeaGreen3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-"map <leader>R :RainbowParenthesesToggle<cr>
-
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<leader>t'
-"let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
-nmap <leader>b :CtrlPBuffer<cr>
-
-
-Bundle 'tacahiroy/ctrlp-funky'
-let g:ctrlp_extensions = ['funky']
-
-nnoremap <Leader>fu :CtrlPFunky<cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky '.expand('<cword>')<cr>
-
-
-" YankRing - Circular Yank
-Bundle 'YankRing.vim'
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
-
-" Gundo - Undo Tree
-Bundle 'sjl/gundo.vim'
-"nnoremap <F5> :GundoToggle<cr>
-
-" Vim-orgmode
-"Bundle 'jceb/vim-orgmode'
-
-" Snipmate (and dependencies)
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
-
-
-Bundle 'spolu/dwm.vim'
-
-" AsyncCommand
-Bundle 'pydave/AsyncCommand'
-
-" MakeGreen
-Bundle 'reinh/vim-makegreen'
-
-" TagList for ctags
-"Bundle 'taglist.vim'
-
-" Tagbar
-Bundle 'majutsushi/tagbar'
-nmap <leader>r :TagbarToggle<cr>
-
-" cscope
-" Requires that you run cscope -R in the root of your code directory.
-Bundle 'vim-scripts/cscope_macros.vim'
-
-
-" YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
-set completeopt+=preview
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-
-" ListToggle
-Bundle 'Valloric/ListToggle'
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-let g:lt_height = 10
-
-" cpplint.py: Download it from
-" http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
-" Rebind from <F7>
-" autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
-" Autolint when you save a cpp file - Requires my patches for .hpp extension
-" support.
-"autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
-Bundle 'funorpain/vim-cpplint'
-
-" Expand visual selection by region.
-Bundle 'terryma/vim-expand-region'
-
-" UltiSnips (alternative to Snipmate)
-" Bundle 'SirVer/ultisnips'
-
-
-" Steve Losh recommends Sparkup for html completion
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git
-
-" MakeGreen
-"Bundle 'reinh/vim-makegreen'
-
-
-
-
-" Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
 
 " Make GUI use console colors
 " set background=dark
@@ -527,6 +549,8 @@ Bundle 'terryma/vim-expand-region'
 "
 "
 "
+" Installation check.
+NeoBundleCheck
 
 colorscheme molokai
 
