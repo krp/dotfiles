@@ -35,7 +35,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 
 " Dark color scheme
-"NeoBundle 'Lokaltog/vim-distinguished'
+NeoBundle 'Lokaltog/vim-distinguished'
 
 NeoBundle 'scrooloose/nerdtree'
 "let loaded_nerd_tree=0 " Load NERDTree at startup
