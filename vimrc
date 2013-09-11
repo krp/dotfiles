@@ -25,11 +25,17 @@ NeoBundle 'Shougo/vimproc', {
 
 " Bundles
 
+" Unite
+NeoBundle 'Shougo/unite.vim'
+
 
 " Git wrapper. See github page.
 NeoBundle 'tpope/vim-fugitive'
 
+" Moved to regular powerline via AUR package.
 "Bundle 'Lokaltog/vim-powerline'
+" Airline (powerline alternative)
+"NeoBundle 'bling/vim-airline'
 
 " Enhanced motion navigation
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -392,7 +398,11 @@ nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
 " it'll prompt for your sudo password, then write the file as root.
 comm! W exec 'w !sudo tee % > /dev/null' | e!
 
+" Store swap files in one location
+"set dir^=$HOME/.vim/swap//
 
+"" Store undo files in one location
+"set undodir^=$HOME/.vim/undo//
 
 " Make GUI use console colors
 " set background=dark
