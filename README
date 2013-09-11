@@ -1,11 +1,7 @@
 .: dotfiles
 
-vimrc requires Vundle (https://github.com/gmarik/vundle):
+vimrc requires NeoBundle: https://github.com/Shougo/neobundle.vim
 
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-Then run :BundleInstall
-
-Read the Syntastic README for information on how to get it working with clang.
+Some functionality is provided by Powerline: https://github.com/Lokaltog/powerline
 
 
