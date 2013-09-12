@@ -1,4 +1,6 @@
-set nocompatible                " vim only, not vi
+"
+" .vimrc - Kris Pritchard
+"
 
 " Vundle
 "filetype off                    " required for vundle
