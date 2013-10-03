@@ -25,6 +25,7 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
+let mapleader = ' '             " Bind <leader> key to space.
 " Bundles
 
 " Unite
@@ -99,6 +100,7 @@ NeoBundle 'klen/python-mode'
 let g:pymode_lint_checker = "pyflakes"
 let g:pymode_run_key = '<leader>a'
 let g:pymode_folding = 0
+let g:pymode_rope = 0
 
 
 " threesome.vim
@@ -250,6 +252,22 @@ NeoBundle 'CCTree'
 "Bundle 'reinh/vim-makegreen'
 
 
+" Vim Airline
+NeoBundle 'bling/vim-airline'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='simple'
+
+" pytest.vim
+NeoBundle 'alfredodeza/pytest.vim'
+nmap <silent><Leader>f <Esc>:Pytest file<CR>
+nmap <silent><Leader>c <Esc>:Pytest class<CR>
+nmap <silent><Leader>m <Esc>:Pytest method<CR>
+
+" jedi python autocompletion
+NeoBundle 'davidhalter/jedi-vim'
+
+
 filetype plugin indent on      " Enable indent plugin - Required by NeoBundle/Vundle
 
 set laststatus=2                " Always show status line
@@ -258,7 +276,7 @@ set encoding=utf-8              " Necessary for unicode glyphs
 set t_Co=256                    " 256 color terminal support
 "let g:Powerline_symbols = 'fancy' " Requires a patched font.
 "let g:Powerline_symbols = 'unicode'
-let g:Powerline_symbols = 'compatible'
+"let g:Powerline_symbols = 'compatible'
 
 
 
@@ -282,7 +300,6 @@ set mouse=a
 
 " Eliminate windows line endings: %s/<Ctrl-V><Ctrl-M>//g
 
-let mapleader = ' '             " Bind <leader> key to space.
 " Fast saving. Press leader+w to write changes to file
 nmap <leader>w :w!<cr>
 " Fast editing of the .vimrc. Press leader+e to edit vimrc.
