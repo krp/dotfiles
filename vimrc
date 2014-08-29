@@ -1,53 +1,42 @@
 "
 " .vimrc - Kris Pritchard
 "
+"
+" Useful links: http://rayninfo.co.uk/vimtips.html
 
-" Vundle
-"filetype off                    " required for vundle
-"set runtimepath+=~/.vim/bundle/vundle/
-"call vundle#rc()
-
-" let Vundle manage Vundle (required)
-"Bundle 'gmarik/vundle'
 
 " NeoBundle
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+"call neobundle#begin(expand('~/.vim/bundle/'))
 call neobundle#rc(expand('~/.vim/bundle/'))
+
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+
+"let g:make = 'gmake'
+"if system('uname -o') =~ '^GNU/'
+"    let g:make = 'make'
+"endif
+"NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': g:make}}
 
 let mapleader = ' '             " Bind <leader> key to space.
-" Bundles
 
 " Unite
-NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/unite.vim'
 
 
-" Git wrapper. See github page.
-NeoBundle 'tpope/vim-fugitive'
+"" Git wrapper. See github page.
+"NeoBundle 'tpope/vim-fugitive'
 
-" Moved to regular powerline via AUR package.
-"Bundle 'Lokaltog/vim-powerline'
-" Airline (powerline alternative)
-"NeoBundle 'bling/vim-airline'
-
-" Enhanced motion navigation
+"" Enhanced motion navigation
 NeoBundle 'Lokaltog/vim-easymotion'
 
-" Dark color scheme
-NeoBundle 'Lokaltog/vim-distinguished'
+"" Dark color scheme
+"NeoBundle 'Lokaltog/vim-distinguished'
 
 NeoBundle 'scrooloose/nerdtree'
-"let loaded_nerd_tree=0 " Load NERDTree at startup
+""let loaded_nerd_tree=0 " Load NERDTree at startup
 let NERDChrismasTree=1 " Additional syntax highlighting
 let NERDTreeDirArrows=0 " Current font is missing unicode arrows
 map <leader>n :NERDTreeToggle<cr>
@@ -55,35 +44,41 @@ map <leader>n :NERDTreeToggle<cr>
 NeoBundle 'scrooloose/nerdcommenter'
 
 NeoBundle 'scrooloose/syntastic'
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_python_checkers=['none']
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_python_checkers=['none']
+""let g:syntastic_cpp_compiler_options = '-std=c++11'
 
-" Interactive command features in split window
-" Required for IPython integration
-"Bundle 'rosenfeld/conque-term' 
-" Integrate vim with IPython
-"Bundle 'ivanov/vim-ipython'
-"" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" Adds surround functionality
+"" Interactive command features in split window
+"" Required for IPython integration
+NeoBundle 'basepi/vim-conque'
+map <leader>' :ConqueTermSplit bpython<CR>
+"" Integrate vim with IPython
+""Bundle 'ivanov/vim-ipython'
+""" Bundle 'Lokaltog/vim-easymotion'
+"" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"" Bundle 'tpope/vim-rails.git'
+"
+"" Adds surround functionality
 NeoBundle 'tpope/vim-surround' 
 
-" repeat using .
+" Interactive commands inside vim buffer
+"NeoBundle 'nicoraffo/conque'
+
+
+"" repeat using .
 NeoBundle 'tpope/vim-repeat'
 
- " vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'indentpython'
-"Bundle 'wincent/Command-T'
-"let g:CommandTMaxFiles=50000
-"map <leader>T ??
+ "" vim-scripts repos
+""Bundle 'L9'
+""Bundle 'FuzzyFinder'
+""Bundle 'indentpython'
+""Bundle 'wincent/Command-T'
+""let g:CommandTMaxFiles=50000
+""map <leader>T ??
 
-"Bundle 'JavaRun'
-"Bundle 'minibufexpl.vim'
-NeoBundle 'mileszs/ack.vim'
+""Bundle 'JavaRun'
+""Bundle 'minibufexpl.vim'
+"NeoBundle 'mileszs/ack.vim'
 
 NeoBundle 'krispritchard/molokai.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
@@ -97,10 +92,23 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 
 " Python-mode. Additional python features.
 NeoBundle 'klen/python-mode'
+let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes"
+let g:pymode_lint_write = 1
 let g:pymode_run_key = '<leader>a'
-let g:pymode_folding = 0
+" Use jedi instead
 let g:pymode_rope = 0
+"let g:pymode_breakpoint_key = '<leader>b'
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"" Don't fold
+let g:pymode_folding = 0
+" Rope makes vim horrendously slow. See help :pymode-rope-slow
+let g:pymode_rope_lookup_project = 0
+" Disable ipdb settrace default binding of <leader>b
+let g:pymode_breakpoint = 0
 
 
 " threesome.vim
@@ -117,139 +125,119 @@ let g:pymode_rope = 0
 " SLIME for vim
 "Bundle 'jpalardy/vim-slime'
 "let g:slime_target = "tmux"
+
+
+
 "
 " Rainbow Parentheses klen != kien
 " 
 NeoBundle 'kien/rainbow_parentheses.vim'
-" Always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
-let g:rbpt_colorpairs = [
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['magenta',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['darkyellow',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkblue',       'firebrick3'],
-    \ ['blue',        'RoyalBlue3'],
-    \ ['cyan',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['magenta',    'firebrick3'],
-    \ ['yellow',       'RoyalBlue3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkblue',    'SeaGreen3'],
-    \ ['red',         'firebrick3'],
-    \ ]
 
-"map <leader>R :RainbowParenthesesToggle<cr>
+
 
 NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>t'
-"let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
+""let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_working_path_mode = 'ra'
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+"let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
 nmap <leader>y :CtrlPBuffer<cr>
 
 
 NeoBundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 
-nnoremap <Leader>fu :CtrlPFunky<cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky '.expand('<cword>')<cr>
+"nnoremap <Leader>fu :CtrlPFunky<cr>
+"" narrow the list down with a word under cursor
+"nnoremap <Leader>fU :execute 'CtrlPFunky '.expand('<cword>')<cr>
 
 
-" YankRing - Circular Yank
-NeoBundle 'YankRing.vim'
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
+"" YankRing - Circular Yank
+"NeoBundle 'YankRing.vim'
+"nnoremap <silent> <F3> :YRShow<cr>
+"inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-" Gundo - Undo Tree
-NeoBundle 'sjl/gundo.vim'
-"nnoremap <F5> :GundoToggle<cr>
+"" Gundo - Undo Tree
+"NeoBundle 'sjl/gundo.vim'
+""nnoremap <F5> :GundoToggle<cr>
 
-" Vim-orgmode
-"Bundle 'jceb/vim-orgmode'
+"" Vim-orgmode
+""Bundle 'jceb/vim-orgmode'
 
-" Snipmate (and dependencies)
-" Bundle 'MarcWeber/vim-addon-mw-utils'
-" Bundle 'tomtom/tlib_vim'
-" Bundle 'honza/snipmate-snippets'
-" Bundle 'garbas/vim-snipmate'
+"" Snipmate (and dependencies)
+"" Bundle 'MarcWeber/vim-addon-mw-utils'
+"" Bundle 'tomtom/tlib_vim'
+"" Bundle 'honza/snipmate-snippets'
+"" Bundle 'garbas/vim-snipmate'
 
 
-NeoBundle 'spolu/dwm.vim'
+"NeoBundle 'spolu/dwm.vim'
 
-" AsyncCommand
-NeoBundle 'pydave/AsyncCommand'
+"" AsyncCommand
+"NeoBundle 'pydave/AsyncCommand'
 
-" MakeGreen
-NeoBundle 'reinh/vim-makegreen'
+"" MakeGreen
+"NeoBundle 'reinh/vim-makegreen'
 
-" TagList for ctags
-"Bundle 'taglist.vim'
+"" TagList for ctags
+""Bundle 'taglist.vim'
 
-" Tagbar
+"" Tagbar
 NeoBundle 'majutsushi/tagbar'
 nmap <leader>r :TagbarToggle<cr>
 
-" cscope
-" Requires that you run cscope -R in the root of your code directory.
-NeoBundle 'vim-scripts/cscope_macros.vim'
+"" cscope
+"" Requires that you run cscope -R in the root of your code directory.
+"NeoBundle 'vim-scripts/cscope_macros.vim'
 
 
-" YouCompleteMe
+"" YouCompleteMe
 NeoBundle 'Valloric/YouCompleteMe'
-set completeopt+=preview
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+"set completeopt+=preview
+"let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
-" ListToggle
+"" ListToggle
 NeoBundle 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10
 
-" cpplint.py: Download it from
-" http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
-" Rebind from <F7>
-" autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
-" Autolint when you save a cpp file - Requires my patches for .hpp extension
-" support.
-"autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
-NeoBundle 'funorpain/vim-cpplint'
+"" cpplint.py: Download it from
+"" http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+"" Rebind from <F7>
+"" autocmd FileType cpp map <buffer> <F3> :call Cpplint()<CR>
+"" Autolint when you save a cpp file - Requires my patches for .hpp extension
+"" support.
+""autocmd BufWritePost *.h,*.cpp,*.hpp call Cpplint()
+"NeoBundle 'funorpain/vim-cpplint'
 
-" Expand visual selection by region.
-" Custom bindings
-" map K <Plug>(expand_region_expand)
-" map J <Plug>(expand_region_shrink)
-NeoBundle 'terryma/vim-expand-region'
-
-
-NeoBundle 'Glench/Vim-Jinja2-Syntax'
+"" Expand visual selection by region.
+"" Custom bindings
+"" map K <Plug>(expand_region_expand)
+"" map J <Plug>(expand_region_shrink)
+"NeoBundle 'terryma/vim-expand-region'
 
 
-" silver_searcher
+"NeoBundle 'Glench/Vim-Jinja2-Syntax'
+
+
+"" silver_searcher
 NeoBundle 'rking/ag.vim'
 
-NeoBundle 'CCTree'
-" UltiSnips (alternative to Snipmate)
-" Bundle 'SirVer/ultisnips'
+"NeoBundle 'CCTree'
+"" UltiSnips (alternative to Snipmate)
+"" Bundle 'SirVer/ultisnips'
 
 
-" Steve Losh recommends Sparkup for html completion
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git
+"" Steve Losh recommends Sparkup for html completion
+"" non github repos
+"" Bundle 'git://git.wincent.com/command-t.git
 
-" MakeGreen
-"Bundle 'reinh/vim-makegreen'
+"" MakeGreen
+""Bundle 'reinh/vim-makegreen'
 
 
 " Vim Airline
@@ -263,10 +251,68 @@ NeoBundle 'alfredodeza/pytest.vim'
 nmap <silent><Leader>f <Esc>:Pytest file<CR>
 nmap <silent><Leader>c <Esc>:Pytest class<CR>
 nmap <silent><Leader>m <Esc>:Pytest method<CR>
+map <leader>s <Esc>:Pytest session<CR>
 
-" jedi python autocompletion
-NeoBundle 'davidhalter/jedi-vim'
+"" jedi python autocompletion
+"NeoBundle 'davidhalter/jedi-vim'
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#use_splits_not_buffers = "left"
 
+"" emmet.io
+NeoBundle 'mattn/emmet-vim'
+
+
+" Actually kinda shitty
+"NeoBundle 'bigfish/vim-js-context-coloring', {
+  "\ 'build' : {
+  "\     'mac' : 'npm install --update',
+  "\     'unix' : 'npm install --update',
+  "\    },
+  "\ }
+
+
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" <leader>ig is default binding for toggling indentation guides
+
+NeoBundle 'jaxbot/selective-undo.vim'
+
+NeoBundle 'Wolfy87/vim-enmasse'
+
+"NeoBundle 'FriedSock/smeargle'
+
+" NOTE: Requires installation of node packages in order to work.
+" cd to tern_for_vim dir and run npm install
+NeoBundle 'marijnh/tern_for_vim'
+
+NeoBundle 'Shutnik/jshint2.vim'
+let jshint2_save = 1
+let jshint2_confirm = 0
+" jshint validation
+nnoremap <silent><F1> :JSHint<CR>
+inoremap <silent><F1> <C-O>:JSHint<CR>
+vnoremap <silent><F1> :JSHint<CR>
+
+" show next jshint error
+nnoremap <silent><F2> :lnext<CR>
+inoremap <silent><F2> <C-O>:lnext<CR>
+vnoremap <silent><F2> :lnext<CR>
+
+" show previous jshint error
+nnoremap <silent><F3> :lprevious<CR>
+inoremap <silent><F3> <C-O>:lprevious<CR>
+vnoremap <silent><F3> :lprevious<CR>
+
+NeoBundle 'godlygeek/tabular'
+
+NeoBundle 'einars/js-beautify'
+NeoBundle 'maksimr/vim-jsbeautify'
+map <leader>b :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
 
 filetype plugin indent on      " Enable indent plugin - Required by NeoBundle/Vundle
 
@@ -338,6 +384,11 @@ set tags=./tags;$HOME/programming/
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 
+" run python script
+map ,t :w\|:!python %<CR>
+
+" close buffer
+map <leader>x :bdelete<CR>
 
 " gmarik's stuff
 set history=256                 " Number of things to remember in history.
@@ -372,6 +423,7 @@ set wildmenu " Show vim autocompletion commands on line above
 set cursorline " Highlights the current line
 set ttyfast " Indicates fast terminal connection. See :help ttyfast
 set relativenumber " Show relative line numbers. Allows faster vertical motion
+set number " Show actual line number of cursor instead of just '0'.
 set undofile " vim 7.3 feature which creates <FILENAME>.un~ for persistent undo
 " Use ordinary regex handling instead of vim's
 " Doesn't seem to work
@@ -416,6 +468,35 @@ nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
 " Sudo write - just type :W if you edit a file without root permissions
 " it'll prompt for your sudo password, then write the file as root.
 comm! W exec 'w !sudo tee % > /dev/null' | e!
+
+" Use <leader>l to toggle display of whitespace
+nmap <leader>, :set list!<CR>
+" And set some nice chars to do it with
+"set listchars=tab:»\ ,eol:¬
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~,eol:¬"
+"set list
+
+" Show arrow at beginning of wrapped lines.
+let &showbreak='↪ '
+
+
+" from Damian Conway
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\%81v', 100)
+
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
+
+
 
 " Store swap files in one location
 "set dir^=$HOME/.vim/swap//
@@ -498,7 +579,7 @@ comm! W exec 'w !sudo tee % > /dev/null' | e!
 
 
 
-" Colorschemes (Nice ones worth keeping):
+" Colorschemes (Nice ones worth keeping - some gvim only):
 " anotherdark
 " asu1dark
 " autumn
@@ -561,24 +642,59 @@ comm! W exec 'w !sudo tee % > /dev/null' | e!
 " habilight
 " herald
 " molokai
-" mustang
+" Mustang
 " nuvola
 " print_bw
 " railscasts
 " rdark
-" silent
-" solarized
-" summerfruit256
+"colorscheme silent
+" Good:
+"solarized
+"summerfruit256
+"vibrantink
+
+
+" Okay:
 " tango
 " tango2
 " taqua
-" vibrantink
 " vividchalk
 " wombat256
 "
 "
 "
 " Installation check.
+
+" Always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:rbpt_colorpairs = [
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['magenta',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkyellow',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkblue',       'firebrick3'],
+    \ ['blue',        'RoyalBlue3'],
+    \ ['cyan',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['magenta',    'firebrick3'],
+    \ ['yellow',       'RoyalBlue3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkblue',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+"map <leader>R :RainbowParenthesesToggle<cr>
+
+
+
+
 NeoBundleCheck
 
 colorscheme molokai
