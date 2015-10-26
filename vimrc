@@ -10,7 +10,8 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 "call neobundle#begin(expand('~/.vim/bundle/'))
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -43,7 +44,7 @@ map <leader>n :NERDTreeToggle<cr>
 
 NeoBundle 'scrooloose/nerdcommenter'
 
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 "let g:syntastic_cpp_compiler = 'clang++'
 "let g:syntastic_python_checkers=['none']
 ""let g:syntastic_cpp_compiler_options = '-std=c++11'
@@ -98,6 +99,8 @@ let g:pymode_lint_write = 1
 let g:pymode_run_key = '<leader>a'
 " Use jedi instead
 let g:pymode_rope = 0
+" Override go-to.definition key shortcut to Ctrl-]
+"let g:pymode_rope_goto_definition_bind = "<C-]>"
 "let g:pymode_breakpoint_key = '<leader>b'
 "let g:pymode_syntax = 1
 "let g:pymode_syntax_all = 1
@@ -109,6 +112,7 @@ let g:pymode_folding = 0
 let g:pymode_rope_lookup_project = 0
 " Disable ipdb settrace default binding of <leader>b
 let g:pymode_breakpoint = 0
+let g:pymode_options_max_line_length = 120
 
 
 " threesome.vim
@@ -132,17 +136,23 @@ let g:pymode_breakpoint = 0
 " Rainbow Parentheses klen != kien
 " 
 NeoBundle 'kien/rainbow_parentheses.vim'
+"NeoBundle 'junegunn/rainbow_parentheses.vim'
 
 
 
 
-NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>t'
 ""let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
 "let g:ctrlp_working_path_mode = 'ra'
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-"let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$', 'file': '\v\.(exe|so|dll)$'}
+set wildignore+=*/tmp/*,*/venv/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 nmap <leader>y :CtrlPBuffer<cr>
 
 
@@ -190,11 +200,11 @@ nmap <leader>r :TagbarToggle<cr>
 
 "" cscope
 "" Requires that you run cscope -R in the root of your code directory.
-"NeoBundle 'vim-scripts/cscope_macros.vim'
+NeoBundle 'vim-scripts/cscope_macros.vim'
 
 
 "" YouCompleteMe
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 "set completeopt+=preview
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 "nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
@@ -262,6 +272,8 @@ map <leader>s <Esc>:Pytest session<CR>
 NeoBundle 'mattn/emmet-vim'
 
 
+NeoBundle 'zah/nimrod.vim'
+
 " Actually kinda shitty
 "NeoBundle 'bigfish/vim-js-context-coloring', {
   "\ 'build' : {
@@ -313,6 +325,28 @@ autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
+
+
+NeoBundle 'rhysd/vim-clang-format'
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+NeoBundle 'terryma/vim-multiple-cursors'
+
+NeoBundle 'editorconfig/editorconfig-vim'
+
+call neobundle#end()
 
 filetype plugin indent on      " Enable indent plugin - Required by NeoBundle/Vundle
 
