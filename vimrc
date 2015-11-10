@@ -63,7 +63,7 @@ map <leader>' :ConqueTermSplit bpython<CR>
 "" Bundle 'tpope/vim-rails.git'
 "
 "" Adds surround functionality
-NeoBundle 'tpope/vim-surround' 
+NeoBundle 'tpope/vim-surround'
 
 " Interactive commands inside vim buffer
 "NeoBundle 'nicoraffo/conque'
@@ -140,7 +140,6 @@ let g:pymode_options_max_line_length = 120
 
 "
 " Rainbow Parentheses klen != kien
-" 
 NeoBundle 'kien/rainbow_parentheses.vim'
 "NeoBundle 'junegunn/rainbow_parentheses.vim'
 
@@ -375,7 +374,7 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
-filetype plugin on             " Enable 
+filetype plugin on             " Enable
 "set omnifunc=syntaxcomplete#Complete
 set linespace=3                 " Num pixel lines inserted between characters.
 
@@ -438,7 +437,7 @@ map <leader>x :bdelete<CR>
 " Move defaults from here to there.
 
 set autowrite                   " Writes on make/shell commands
-set autoread  
+set autoread
 set timeoutlen=250              " Time to wait after ESC, 0 bugs out some keypresses
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
@@ -462,13 +461,13 @@ set number " Show actual line number of cursor instead of just '0'.
 set undofile " vim 7.3 feature which creates <FILENAME>.un~ for persistent undo
 " Use ordinary regex handling instead of vim's
 " Doesn't seem to work
-"nnoremap / /\v 
-"vnoremap / /\/ 
+"nnoremap / /\v
+"vnoremap / /\/
 set gdefault " With :s/foo/bar/g, globally substitute all matches on line without needing /g
 set showmatch " Briefly show where matching bracket is when one is inserted.
 " Uses tab to match bracket pairs instead of using %
-nnoremap <tab> % 
-vnoremap <tab> % 
+nnoremap <tab> %
+vnoremap <tab> %
 set textwidth=79 " Wrap lines after 79 chars except in paste mode
 set formatoptions=qrn1 " Wrapping options. See :help fo-table
 "set colorcolumn=85 " Show colored column after 85 chars.
@@ -568,7 +567,7 @@ endfunction
 "     " save selection registers
 "     new
 "     silent! put
-" 
+"
 "     " get current highlight configuration
 "     redir @x
 "     silent! highlight
@@ -577,7 +576,7 @@ endfunction
 "     new
 "     " paste in
 "     silent! put x
-" 
+"
 "     " convert to vim syntax (from Mkcolorscheme.vim,
 "     "   http://vim.sourceforge.net/scripts/script.php?script_id=85)
 "     " delete empty,"links" and "cleared" lines
@@ -590,7 +589,7 @@ endfunction
 "     silent! %s/^/highlight /
 "     " protect spaces in some font names
 "     silent! %s/font=\(.*\)/font='\1'/
-" 
+"
 "     " substitute bold with "NONE"
 "     execute 'silent! %s/' . a:attr . '\([\w,]*\)/NONE\1/geI'
 "     " yank entire buffer
@@ -599,10 +598,10 @@ endfunction
 "     silent! normal "xy
 "     " run
 "     execute @x
-" 
+"
 "     " remove temp buffer
 "     bwipeout!
-" 
+"
 "     " restore selection registers
 "     silent! normal ggVGy
 "     bwipeout!
