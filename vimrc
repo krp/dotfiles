@@ -73,7 +73,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 
 "" Sane defaults
-NeoBundle 'tpope/sensible'
+NeoBundle 'krisrp/vim-sensible'
 
  "" vim-scripts repos
 ""Bundle 'L9'
@@ -430,11 +430,14 @@ map ,t :w\|:!python %<CR>
 " close buffer
 map <leader>x :bdelete<CR>
 
-" gmarik's stuff
-set history=256                 " Number of things to remember in history.
+" Tpope's sensible.vim handles
+" autoindent, backspace, complete, smarttab, nrformats, ttimeout,
+" ttimeoutlen=100, incsearch, laststatus, history, etc.
+" Move defaults from here to there.
+
 set autowrite                   " Writes on make/shell commands
 set autoread  
-set timeoutlen=500              " Time to wait after ESC, 0 bugs out some keypresses
+set timeoutlen=250              " Time to wait after ESC, 0 bugs out some keypresses
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
 set hlsearch                    " highlight search
@@ -442,8 +445,6 @@ set hlsearch                    " highlight search
 map <leader>h :nohlsearch<CR>
 set ignorecase                  " Do case insensitive matching with
 set smartcase                   " Be sensitive when word begins with a capital letter
-set incsearch                   " Incremental search - show matching patterns as you type
-set backspace=indent,eol,start  " more powerful backspacing
 
 "set nowrap
 "set textwidth=0                 " Don't wrap lines by default
