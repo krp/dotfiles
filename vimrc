@@ -23,7 +23,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
-nnoremap <C-l> :Unite file file_rec/async buffer file_mru<CR>
+nnoremap <C-l> :Unite -silent -start-insert file file_rec/async buffer file_mru<CR>
 nnoremap <C-y> :Unite line<CR>
 
 let mapleader = ' '             " Bind <leader> key to space.
@@ -300,9 +300,11 @@ set tags=./tags;$HOME/programming/
 " set term=NONE
 
 " GUI options
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
+if has('gui_running')
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+endif
 
 " run python script
 map ,t :w\|:!python %<CR>
