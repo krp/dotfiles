@@ -298,6 +298,7 @@ set tags=./tags;$HOME/programming/
 " set gui=NONE
 " set cterm=NONE
 " set term=NONE
+":sp $VIMRUNTIME/syntax/hitest.vim | source %       " Display all colors
 
 " GUI options
 if has('gui_running')
