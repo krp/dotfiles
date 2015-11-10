@@ -62,7 +62,8 @@ NeoBundle 'krisrp/rainbow_parentheses.vim'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'      " Fuzzy file/buffer/mru/tag finder.
 let g:ctrlp_map = '<leader>t'
-set wildignore+=*/tmp/*,*/venv/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux
+set wildignore+=*/tmp/*,*/venv/*,*/node_modules/* 
+set wildignore+=*.so,*.swp,*~,*.zip
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$',
@@ -181,6 +182,8 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'junegunn/goyo.vim'   " Distraction-free writing in Vim
 " Switch to distraction-free mode with leader-G
 nmap <leader>g :Goyo<CR>
+
+NeoBundle 'KabbAmine/zeavim.vim'        " Zeal for vim
 
 call neobundle#end()
 
@@ -301,7 +304,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 set textwidth=79 " Wrap lines after 79 chars except in paste mode
 set formatoptions=qrn1 " Wrapping options. See :help fo-table
-set colorcolumn=120 " Show colored column after 85 chars.
+"set colorcolumn=120 " Show colored column after 85 chars.
 
 nnoremap j gj
 nnoremap k gk
