@@ -90,7 +90,7 @@ NeoBundle 'krisrp/rainbow_parentheses.vim'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'      " Fuzzy file/buffer/mru/tag finder.
 let g:ctrlp_map = '<leader>t'
-set wildignore+=*/tmp/*,*/venv/*,*/node_modules/* 
+set wildignore+=*/tmp/*,*/venv/*,*/node_modules/*
 set wildignore+=*.so,*.swp,*~,*.zip
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
@@ -214,6 +214,19 @@ nmap <leader>g :Goyo<CR>
 NeoBundle 'KabbAmine/zeavim.vim'        " Zeal for vim
 
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'osyo-manga/vim-anzu'
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+
+" anzu statusline
+set statusline=%{anzu#search_status()}
+
 
 call neobundle#end()
 
@@ -242,6 +255,8 @@ filetype plugin on             " Enable
 "set omnifunc=syntaxcomplete#Complete
 set linespace=3                 " Num pixel lines inserted between characters.
 
+set breakindent                 " Continue linebreaks at correct indentation
+set linebreak                   " Wrap lines at 'breakat' char.
 
 " Set 'jj' to Esc. Good for computers w/o capslock rebinding.
 inoremap jj <Esc>
@@ -306,6 +321,7 @@ set timeoutlen=250              " Time to wait after ESC, 0 bugs out some keypre
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
 " Toggle hlsearch off with leader+h, or just type :noh.
+set hlsearch
 map <leader>h :nohlsearch<CR>
 
 "set nowrap
