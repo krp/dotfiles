@@ -11,6 +11,20 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
+
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite.vim'
+nnoremap <C-l> :Unite file file_rec/async buffer file_mru<CR>
+
 let mapleader = ' '             " Bind <leader> key to space.
 
 NeoBundle 'tpope/vim-fugitive'      " Git wrapper
@@ -22,6 +36,19 @@ NeoBundle 'scrooloose/nerdtree'
 let NERDChrismasTree=1 " Additional syntax highlighting
 let NERDTreeDirArrows=0 " Current font is missing unicode arrows
 map <leader>n :NERDTreeToggle<cr>
+
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "M",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "U",
+    \ "Renamed"   : "R",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "D",
+    \ "Clean"     : "C",
+    \ "Unknown"   : "?"
+    \ }
 
 NeoBundle 'scrooloose/nerdcommenter' " Smart commenting out of code
 
