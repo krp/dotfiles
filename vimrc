@@ -27,8 +27,11 @@ let mapleader = ' '             " Bind <leader> key to space.
 "NeoBundle 'Shougo/unite.vim'
 
 
-"" Git wrapper. See github page.
-"NeoBundle 'tpope/vim-fugitive'
+" Git wrapper.
+NeoBundle 'tpope/vim-fugitive'
+
+" Git diffs in gutter
+NeoBundle 'airblade/vim-gitgutter'
 
 "" Enhanced motion navigation
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -107,7 +110,7 @@ let g:pymode_rope = 0
 "let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 "let g:pymode_syntax_space_errors = g:pymode_syntax_all
 "" Don't fold
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 " Rope makes vim horrendously slow. See help :pymode-rope-slow
 let g:pymode_rope_lookup_project = 0
 " Disable ipdb settrace default binding of <leader>b
