@@ -87,7 +87,7 @@ NeoBundle 'krisrp/vim-sensible'
 ""Bundle 'minibufexpl.vim'
 "NeoBundle 'mileszs/ack.vim'
 
-NeoBundle 'krispritchard/molokai.vim'
+NeoBundle 'krisrp/molokai.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 
 
@@ -153,7 +153,7 @@ let g:ctrlp_map = '<leader>t'
 ""let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
 "let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*/venv/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*/venv/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$',
@@ -278,7 +278,7 @@ map <leader>s <Esc>:Pytest session<CR>
 NeoBundle 'mattn/emmet-vim'
 
 
-NeoBundle 'zah/nimrod.vim'
+NeoBundle 'zah/nimrod.vim'                  " Nim language support
 
 " Actually kinda shitty
 "NeoBundle 'bigfish/vim-js-context-coloring', {
@@ -356,29 +356,31 @@ call neobundle#end()
 
 filetype plugin indent on      " Enable indent plugin - Required by NeoBundle/Vundle
 
-set laststatus=2                " Always show status line
 "let g:mapleader = "\"          " Use \ as leader key. Disabled.
 set encoding=utf-8              " Necessary for unicode glyphs
 set t_Co=256                    " 256 color terminal support
+
+
+
 "let g:Powerline_symbols = 'fancy' " Requires a patched font.
 "let g:Powerline_symbols = 'unicode'
 "let g:Powerline_symbols = 'compatible'
 
 
-
 syntax enable
 set modeline
 
+" Tabs/spaces/etc.
 set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
 filetype plugin on             " Enable 
-"set ofu=syntaxcomplete#Complete
-set linespace=3
+"set omnifunc=syntaxcomplete#Complete
+set linespace=3                 " Num pixel lines inserted between characters.
 
 
-" Set 'jj' to Esc
+" Set 'jj' to Esc. Good for computers w/o capslock rebinding.
 inoremap jj <Esc>
 
 " Enable mouse scrolling in terminal vim
@@ -388,7 +390,7 @@ set mouse=a
 
 " Fast saving. Press leader+w to write changes to file
 nmap <leader>w :w!<cr>
-" Fast editing of the .vimrc. Press leader+e to edit vimrc.
+" Fast editing of .vimrc. Press leader+e to edit vimrc.
 map <leader>e :e! $MYVIMRC<cr>
 "nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> " Steve Losh's binding for
 "above command. Opens it in a new split window.
@@ -440,11 +442,8 @@ set autoread
 set timeoutlen=250              " Time to wait after ESC, 0 bugs out some keypresses
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
-set hlsearch                    " highlight search
 " Toggle hlsearch off with leader+h, or just type :noh.
 map <leader>h :nohlsearch<CR>
-set ignorecase                  " Do case insensitive matching with
-set smartcase                   " Be sensitive when word begins with a capital letter
 
 "set nowrap
 "set textwidth=0                 " Don't wrap lines by default
@@ -455,13 +454,8 @@ set smartcase                   " Be sensitive when word begins with a capital l
  set nolist                      " Disables adding linebreaks where there shouldn't be any
  set wrapmargin=0
 
-" Some of Steve Losh's settings
-set scrolloff=3 " Show 3 lines above and below cursor when scrolling
-set showcmd " Show parts of the currently typed command in the status line
-set wildmenu " Show vim autocompletion commands on line above
 " set wildmode=list:longest " Makes the autocompletion take up much more
 " screen space
-set cursorline " Highlights the current line
 set ttyfast " Indicates fast terminal connection. See :help ttyfast
 set relativenumber " Show relative line numbers. Allows faster vertical motion
 set number " Show actual line number of cursor instead of just '0'.
