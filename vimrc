@@ -24,6 +24,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 nnoremap <C-l> :Unite file file_rec/async buffer file_mru<CR>
+nnoremap <C-y> :Unite line<CR>
 
 let mapleader = ' '             " Bind <leader> key to space.
 
@@ -96,7 +97,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-nmap <leader>y :CtrlPBuffer<cr>
+"nmap <leader>y :CtrlPBuffer<cr>
 
 
 NeoBundle 'tacahiroy/ctrlp-funky'
@@ -211,6 +212,8 @@ NeoBundle 'junegunn/goyo.vim'   " Distraction-free writing in Vim
 nmap <leader>g :Goyo<CR>
 
 NeoBundle 'KabbAmine/zeavim.vim'        " Zeal for vim
+
+NeoBundle 'ujihisa/unite-colorscheme'
 
 call neobundle#end()
 
