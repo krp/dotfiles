@@ -72,6 +72,9 @@ NeoBundle 'tpope/vim-surround'
 "" repeat using .
 NeoBundle 'tpope/vim-repeat'
 
+"" Sane defaults
+NeoBundle 'tpope/sensible'
+
  "" vim-scripts repos
 ""Bundle 'L9'
 ""Bundle 'FuzzyFinder'
