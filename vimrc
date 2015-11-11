@@ -24,7 +24,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 nnoremap <C-l> :Unite -silent -start-insert file file_rec/async buffer file_mru<CR>
-nnoremap <C-y> :Unite line<CR>
+nnoremap <C-x> :Unite line<CR>
 
 let mapleader = ' '             " Bind <leader> key to space.
 
@@ -274,12 +274,9 @@ map <leader>e :e! $MYVIMRC<cr>
 "above command. Opens it in a new split window.
 
 " Vertically split window switch cursor focus with leader+v.
+set splitright
+set splitbelow
 nnoremap <leader>v <C-w>v<C-w>l
-" Navigate splits easily using Ctrl+hjkl.
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " Cycle through buffers
 "map <F2> :bprevious<CR>
@@ -358,10 +355,24 @@ set formatoptions=qrn1 " Wrapping options. See :help fo-table
 nnoremap j gj
 nnoremap k gk
 
+" Rebind q and use . for repeating instead.
+nnoremap q <nop>
+
 " Disable help on F1 keypress. Avoids accidentally hitting it if you press Esc.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Neovim terminal bindings
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Automatically write changes to file after losing focus.
 au FocusLost * :wa
