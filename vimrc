@@ -322,6 +322,8 @@ set autoread
 set timeoutlen=250              " Time to wait after ESC, 0 bugs out some keypresses
 set clipboard+=unnamed          " Yanks go on clipboard instead.
 
+set cursorline                  " Highlight current line
+
 " Toggle hlsearch off with leader+h, or just type :noh.
 set hlsearch
 map <leader>h :nohlsearch<CR>
