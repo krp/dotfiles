@@ -51,6 +51,8 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+NeoBundle 'jistr/vim-nerdtree-tabs'  " Better nerdtree support w/ tabs
+
 NeoBundle 'scrooloose/nerdcommenter' " Smart commenting out of code
 
 map <leader>' :ConqueTermSplit bpython<CR>
