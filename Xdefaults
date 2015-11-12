@@ -152,7 +152,7 @@ URxvt*keysym.End: \033[4~
 !URxvt*keysym.Home: \e[1~
 !URxvt*keysym.End: \e[4~
 
-URxvt*saveLines: 50000
+URxvt*saveLines: 100000
 
 !URxvt.font: xft:Liberation Mono:pixelsize=12
 !URxvt.font: xft:Monaco
@@ -183,11 +183,13 @@ URxvt.cursorColor2: #FF00FF
 !URxvt.color15:      #e1dddd
 
 ! URxvt features from urxvt-perls AUR package.
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select                                                                              
-URxvt.url-select.launcher:  firefox
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font,vim-insert
 URxvt.url-select.underline: true
-! Selects URL's in urxvt with Alt-U
+! Selects URLs in urxvt with Alt-U
 URxvt.keysym.M-u:           perl:url-select:select_next
+
+!URxvt.url-select.launcher:  firefox
+
 ! Alt-Esc then vim keys allows visual selection.
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 ! Alt-S searches scrollback
@@ -195,11 +197,15 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 !
 
 URxvt.depth: 32
-!URxvt.background: rgba:2121/2121/2121/aaaa
-URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+URxvt.background: rgba:2121/2121/2121/eeee
+URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.font: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+!URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+!URxvt.italicFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+!URxvt.bolditalicFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
 
 URxvt.lineSpace: 1
 URxvt.letterSpace: 0
@@ -219,3 +225,13 @@ URxvt.geometry: 150x40
 ! -fn stands for normal font, -fb for bold. Ugly without both.
 ! urxvt -fn 6x10 fb 6x10
 ! 6x12
+!
+!
+!URxvt.keysym.C-Up:     perl:font-size:increase
+!URxvt.keysym.C-Down:   perl:font-size:decrease
+!URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+!URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+! Disable iso crap when pressing Ctrl+Shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
