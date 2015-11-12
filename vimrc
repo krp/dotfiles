@@ -359,9 +359,6 @@ set formatoptions=qrn1 " Wrapping options. See :help fo-table
 nnoremap j gj
 nnoremap k gk
 
-" Rebind q and use . for repeating instead.
-nnoremap q <nop>
-
 " Disable help on F1 keypress. Avoids accidentally hitting it if you press Esc.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
