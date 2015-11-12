@@ -1,7 +1,3 @@
-.: dotfiles
+# dotfiles
 
 vimrc requires NeoBundle: https://github.com/Shougo/neobundle.vim
-
-Some functionality is provided by Powerline: https://github.com/Lokaltog/powerline
-
-
