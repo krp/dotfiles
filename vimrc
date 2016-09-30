@@ -23,8 +23,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
-nnoremap <C-l> :Unite -silent -start-insert file file_rec/async buffer file_mru<CR>
-nnoremap <C-x> :Unite line<CR>
+nnoremap <leader>l :Unite -silent -start-insert file file_rec/async buffer file_mru<CR>
+nnoremap <leader>x :Unite line<CR>
 
 let mapleader = ' '             " Bind <leader> key to space.
 
@@ -124,7 +124,8 @@ NeoBundle 'terryma/vim-expand-region'   " Expand visual mode by region
 
 NeoBundle 'rking/ag.vim'                " Silver searcher
 
-NeoBundle 'bling/vim-airline'           " Vim Airline
+NeoBundle 'vim-airline/vim-airline'           " Vim Airline
+NeoBundle 'vim-airline/vim-airline-themes'    " Vim Airline themes
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='simple'
@@ -148,7 +149,7 @@ NeoBundle 'zah/nimrod.vim'                  " Nim language support
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " <leader>ig is default binding for toggling indentation guides
 
-NeoBundle 'jaxbot/selective-undo.vim'
+"NeoBundle 'jaxbot/selective-undo.vim'
 
 NeoBundle 'Wolfy87/vim-enmasse'
 
@@ -181,13 +182,13 @@ NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'einars/js-beautify'
 NeoBundle 'maksimr/vim-jsbeautify'
-map <leader>b :call JsBeautify()<cr>
+"map <leader>b :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
+"autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+"autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
+"autocmd FileType css noremap <buffer> <leader>b :call CSSBeautify()<cr>
 
 
 NeoBundle 'rhysd/vim-clang-format'
@@ -222,6 +223,18 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
+
+" Syntax
+NeoBundle 'ethereum/vim-solidity'
+NeoBundle 'digitaltoad/vim-pug'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'jbgutierrez/vim-babel'
+NeoBundle 'pangloss/vim-javascript'
+
+NeoBundle 'sjl/badwolf'
+NeoBundle 'rakr/vim-one'
+NeoBundle 'bkad/CamelCaseMotion'
 
 " clear status
 nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
@@ -397,6 +410,23 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~,eol:¬"
 " Show arrow at beginning of wrapped lines.
 let &showbreak='↪ '
 
+
+" CamelCaseMotion
+"call camelcasemotion#CreateMotionMappings('<leader>')
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 " from Damian Conway
 "highlight ColorColumn ctermbg=magenta
