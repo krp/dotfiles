@@ -139,8 +139,8 @@ Xft.hintstyle:  hintslight
 ! urxvt ----------------------------------------------------------------------
 
 ! Transparency
-!URxvt.transparent: true
-!URxvt.shading: 10
+URxvt.transparent: true
+URxvt.shading: 30
 !URxvt.tintColor: Green
 
 ! Scrollbar
@@ -199,18 +199,31 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 URxvt.depth: 32
 ! [opacity]#RRGGBB
 URxvt.background: [90]#000020
-URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-!URxvt.font: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-!URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-!URxvt.italicFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
-!URxvt.bolditalicFont: xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true, xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+! Regular resolution
+!URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+
+
+
+
+!4K res
+URxvt.font: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.boldFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.italicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.bolditalicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+
+
+!URxvt.font: xft:Courier New:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.boldFont: xft:Courier New:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.italicFont: xft:Courier New:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.bolditalicFont: xft:Courier New:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+
 
 URxvt.lineSpace: 1
-URxvt.letterSpace: 0
-!URxvt.letterSpace: -2
+!URxvt.letterSpace: 1
+URxvt.letterSpace: -1
 URxvt.geometry: 150x40
 !URxvt.geometry: 200x40
 !URxvt.tintColor: gray
