@@ -20,7 +20,7 @@ Plug 'mxw/vim-jsx'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 
 " Status bar
@@ -33,6 +33,9 @@ Plug 'elzr/vim-json'
 
 " Rust
 Plug 'rust-lang/rust.vim' | Plug 'rust-lang/rust' | Plug 'racer-rust/vim-racer'
+
+" Python
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Code
 Plug 'sjl/gundo.vim'
@@ -50,6 +53,12 @@ Plug 'KabbAmine/zeavim.vim'
 
 " Misc
 Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-rsi'
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
+" See github for configuration
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
@@ -73,6 +82,11 @@ set textwidth=79 " Wrap at 79 chars except in paste mode
 set formatoptions=qrn1 " Wrapping options. See :help fo-table
 "set colorcolumn=120 " Show colored column after 120 chars
 set background=dark
+
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -126,7 +140,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Use <leader>l to toggle display of whitespace
 nmap <leader>, :set list!<cr>
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~,eol:¬"
+exec "set listchars=tab:->,trail:\uB7,nbsp:~,eol:¬"
 " Strip all trailing whitespace from current file
 nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
 " Add support for 'after' designated chars. (See junegunn/vim-after-object)
