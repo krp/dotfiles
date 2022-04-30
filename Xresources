@@ -35,106 +35,49 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
+! Additional freetype now that infinality is gone
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
 
 ! colors (general) --------------------------
 
+! very nice base colors
+
+*foreground:	#c0c0c0
+!*background:	#1b1d1e
+
 !black
-!*color0:    #1b1d1e
-!*color8:    #505354
+*color0:    #1b1d1e
+*color8:    #505354
 
-!!red
-!*color1:    #f92672
-!*color9:    #fc2200
-
-!!green
-!*color2:    #29c900
-!*color10:   #80ff00
-
-!!yellow
-!*color3:    #fd971f
-!*color11:   #ffff33
-
-!!blue
-!*color4:    #0080ff
-!!*color12:   #8cedff
-!*color12:   #4da6ff
-
-!!magenta (purple instead of pink)
-!*color5:   #5800b3
-!*color13:    #a64dff
-
-!!cyan
-!*color6:    #465457
-!*color14:   #899ca1
-
-!!white
-!*color7:    #ccccc6
-!*color15:   #f8f8f2
-
-
-! ----------------------------------------------------------------------
-! colors (belge)
-!
-!black
-!*color0:     #252525
-!*color8:     #454545
-!!red
-!*color1:     #EF6769
-!*color9:     #FC7CA5
-!!green
-!*color2:     #A6E22E
-!*color10:    #B6E354
-!!yellow
-!*color3:     #FD971F
-!*color11:    #FD971F
-!!blue
-!*color4:     #6495ED
-!*color12:    #87CEEB
-!!magenta
-!*color5:     #DEB887
-!*color13:    #996600
-!!cyan
-!*color6:     #B0C4DE
-!*color14:    #87CEEB
-!!white
-!*color7:     #DBDCDC
-!*color15:    #FDFDFD
-
-!URxvt.foreground: Grey
-!URxvt.background: Black
-! ----------------------------------------------------------------------
-
-
-
-*foreground:              #a0a0a0
-!*background:              #1B1D1E
-*background:              #121212
-!black
-*color0:                  #1B1D1E
-*color8:                  #505354
 !red
-*color1:                  #F92672
-*color9:                  #FF5995
+*color1:    #f92672
+*color9:    #fc2200
+
 !green
-*color2:                  #82B414
-*color10:                 #B6E354
+*color2:    #29c900
+*color10:   #80ff00
+
 !yellow
-*color3:                  #FD971F
-*color11:                 #FEED6C
+*color3:    #fd971f
+*color11:   #ffff33
+
 !blue
-*color4:                  #4E82AA
-*color12:                 #0C73C2
-!magenta
-*color5:                  #8C54FE
-*color13:                 #9E6FFE
+*color4:    #0080ff
+!!*color12:   #8cedff
+*color12:   #4da6ff
+
+!magenta (purple instead of pink)
+*color5:   #5800b3
+*color13:    #a64dff
+
 !cyan
-*color6:                  #465457
-*color14:                 #899CA1
+*color6:    #465457
+*color14:   #899ca1
+
 !white
-*color7:                  #CCCCC6
-*color15:                 #F8F8F2
-
-
+*color7:    #ccccc6
+*color15:   #f8f8f2
 
 ! urxvt ----------------------------------------------------------------------
 
@@ -152,7 +95,7 @@ URxvt*keysym.End: \033[4~
 !URxvt*keysym.Home: \e[1~
 !URxvt*keysym.End: \e[4~
 
-URxvt*saveLines: 100000
+URxvt*saveLines: 1000000
 
 !URxvt.font: xft:Liberation Mono:pixelsize=12
 !URxvt.font: xft:Monaco
@@ -200,19 +143,19 @@ URxvt.depth: 32
 ! [opacity]#RRGGBB
 URxvt.background: [90]#000020
 ! Regular resolution
-!URxvt.font: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-!URxvt.boldFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-!URxvt.italicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-!URxvt.bolditalicFont: xft:monofur for Powerline:pixelsize=13:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.font: xft:monofur:bold:pixelsize=16:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.boldFont: xft:monofur:bold:pixelsize=16:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.italicFont: xft:monofur:bold:pixelsize=16:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+URxvt.bolditalicFont: xft:monofur:bold:pixelsize=16:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
 
 
 
 
 !4K res
-URxvt.font: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.boldFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.italicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
-URxvt.bolditalicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.font: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.boldFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.italicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
+!URxvt.bolditalicFont: xft:monofur:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
 
 
 !URxvt.font: xft:Courier New:pixelsize=30:antialias=true:hinting=true, xft:Menlo for Powerline:pixelsize=20:antialias=true:hinting=true
