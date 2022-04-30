@@ -267,3 +267,22 @@ colorscheme molokai
 " Plug 'nvim-lua/completion-nvim'
 
 
+" colorscheme 256_noir  " Ok.
+" colorscheme afterglow  " Ok.
+"let ayucolor="dark"
+"colorscheme ayu  " Possibly not working
+" colorscheme carbonized-dark  " Has some pretty crazy cursor, status line, and
+" number column highlighting.
+"colorscheme deus  " Looks identical to gruvbox? Ok 
+" colorscheme fogbell  " Not bad for monochrome
+" colorscheme gruvbox  " A bit boring
+" colorscheme papercolor  " Ok. Quite nice in Rust
+" colorscheme molokayo  " Not bad molokai alternative
+" colorscheme onedark  " Ok, not great.
+" colorscheme purify  " Probably not working. Nice to have italic
+" variables/property names.
+"colorscheme sonokai  " Muted molokai
+" colorscheme atlas  " Might be ok for writing? Sucks for coding.
+" colorscheme austere  " Boring but ok grayscale.
+" colorscheme pencil  " Potentially ok base if tweaked.
+"colorscheme monotone  " Ok use of italic. Nice grey.
