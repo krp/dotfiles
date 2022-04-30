@@ -46,6 +46,8 @@ Plug('python-mode/python-mode', {branch= 'develop'})
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'neomake/neomake'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 -- Plug 'posva/vim-vue'
 
@@ -84,6 +86,30 @@ Plug 'junegunn/vim-easy-align'
 
 -- Docs
 Plug 'KabbAmine/zeavim.vim'
+
+
+-- Docker
+Plug 'ekalinin/Dockerfile.vim'
+
+
+-- Some new colorschemes
+-- andreasvc/vim-256noir
+-- danilo-augusto/vim-afterglow
+-- ayu-theme/ayu-vim
+-- nightsense/carbonized
+-- ajmwagar/vim-deus
+-- jaredgorski/fogbell.vim
+-- morhetz/gruvbox
+-- NLKNguyen/papercolor-theme
+-- fmoralesc/molokayo
+-- joshdick/onedark.vim
+-- kyoz/purify, { 'rtp': 'vim' }
+-- sainnhe/sonokai
+-- huyvohcmc/atlas.vim
+-- LuRsT/austere.vim
+-- reedes/vim-colors-pencil
+-- Lokaltog/vim-monotone
+--
 
 
 -- Misc

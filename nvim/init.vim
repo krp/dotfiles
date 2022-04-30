@@ -182,22 +182,39 @@ inoremap jj <Esc>
 nmap <leader>e :e! $MYVIMRC<cr>
 " When vimrc is edited and saved, automatically reload it
 autocmd! bufwritepost vimrc source $MYVIMRC
+
+" Remap Q to prevent Ex mode
+nmap Q <nop>
+
+" EasyMotion
+map <leader>a <Plug>(easymotion-b)
+map <leader>d <Plug>(easymotion-w)
+
+" Add leader-r runs Python file.
+autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+" Can also use imap for insert-mode binding
+
 " Fast close-buffer
 nmap <leader>x :bdelete<cr>
+
 " Toggle hlsearch off
 map <leader>h :nohlsearch<cr>
+
 " Uses Tab to match bracket pairs instead of using %
 nnoremap <tab> %
 vnoremap <tab> %
+
 " Disable accidental opening of docs on F1 keypress
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
 " Easier split swaps
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
 " Use <leader>l to toggle display of whitespace
 nmap <leader>, :set list!<cr>
 
@@ -205,15 +222,48 @@ nmap <leader>, :set list!<cr>
 
 " Strip all trailing whitespace from current file
 nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
+
 " Add support for 'after' designated chars. (See junegunn/vim-after-object)
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
 " (junegunn/vim-easy-align) in visual-mode only (see docs for normal mode)
 xmap ga <Plug>(EasyAlign)
+
 " Fuzzy finder (see junegunn/fzf.vim for more details)
 map <leader>t :FZF<cr>
 
 " TODO: Reenable for annoying lint warnings
 " call neomake#configure#automake('w', 5000)
 
+" vim-flutter
+let g:dart_style_guide=1
+nnoremap <leader>fa :FlutterRun<cr>
+nnoremap <leader>fq :FlutterQuit<cr>
+nnoremap <leader>fr :FlutterHotReload<cr>
+nnoremap <leader>fR :FlutterHotRestart<cr>
+nnoremap <leader>fD :FlutterVisualDebug<cr>
+
+" Completion
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" if exists('+termguicolors')
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" endif
+
+set laststatus=2
+
+" schemes
+" soft, medium, hard
+" let g:gruvbox_contrast = hard
 
 colorscheme molokai
+
+
+""" Crap to be migrated / double-checked from Mac config
+
+" Completion
+" Plug 'nvim-lua/completion-nvim'
+
+
