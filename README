@@ -1,3 +1,5 @@
 # dotfiles
 
-vimrc requires NeoBundle: https://github.com/Shougo/neobundle.vim
+vimrc requires Plug for plugin management: https://github.com/junegunn/vim-plug
+
+Clone to ~/dotfiles and create symlinks. nvimrc goes in ~/.config/nvim/init.vim
