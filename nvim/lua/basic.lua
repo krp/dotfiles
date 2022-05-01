@@ -1,15 +1,25 @@
--- depends on neovim v0.6+
-print('hello from ~/.config/nvim/lua/basic.lua')
-
-vim.g.mapleader = ' '
-
+-- local use = require('packer').use
+-- require('packer').startup(function ()
+--   use 'wbthomason/packer.nvim' -- Package manager
+--   use 'neovim/nvim-lspconfig' -- Collection of configurations
+-- end)
 
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
+-- depends on neovim v0.6+
+print('hello from ~/.config/nvim/lua/basic.lua')
+
+
+vim.g.mapleader = ' '
+
+
 -- lua helpers
 Plug 'nvim-lua/plenary.nvim'
+
+-- LSP
+Plug 'neovim/nvim-lspconfig'
 
 -- Colors
 Plug 'krp/molokai.vim'
@@ -23,31 +33,31 @@ Plug 'tiagovla/tokyodark.nvim'
 
 
 -- File management
-Plug('scrooloose/nerdtree', {on= 'NERDTreeToggle'})
+--TODO: Plug('scrooloose/nerdtree', {on= 'NERDTreeToggle'})
 
 -- Plug('junegunn/fzf', {dir: '~/.fzf', do: './install --all'})
-Plug('junegunn/fzf', {['do'] = '-> fzf#install()'})
-Plug 'junegunn/fzf.vim'
+--TODO: Plug('junegunn/fzf', {['do'] = '-> fzf#install()'})
+--TODO: Plug 'junegunn/fzf.vim'
 
 -- and this
 -- Plug 'justinmk/vim-gtfo'
 
 -- Treesitter
 -- Then use TSInstall <language> to use. See repo for languages
-Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+--TODO: Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 
 -- Syntax
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'moll/vim-node'
-Plug 'elzr/vim-json'
-Plug 'rust-lang/rust.vim'
-Plug('python-mode/python-mode', {branch= 'develop'})
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'neomake/neomake'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+--TODO: Plug 'pangloss/vim-javascript'
+--TODO: Plug 'mxw/vim-jsx'
+--TODO: Plug 'moll/vim-node'
+--TODO: Plug 'elzr/vim-json'
+--TODO: Plug 'rust-lang/rust.vim'
+--TODO: Plug('python-mode/python-mode', {branch= 'develop'})
+--TODO: Plug 'leafgarland/typescript-vim'
+--TODO: Plug 'peitalin/vim-jsx-typescript'
+--TODO: Plug 'neomake/neomake'
+--TODO: Plug 'dart-lang/dart-vim-plugin'
+--TODO: Plug 'thosakwe/vim-flutter'
 
 -- Plug 'posva/vim-vue'
 
@@ -67,158 +77,67 @@ Plug 'thosakwe/vim-flutter'
 
 
 -- Status Bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+--TODO: Reenable Plug 'vim-airline/vim-airline'
+--TODO: Reenable Plug 'vim-airline/vim-airline-themes'
 
 
 -- Movement
 -- maybe remove:
 -- Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-expand-region'
+--TODO: Plug 'tpope/vim-surround'
+--TODO: Plug 'tpope/vim-repeat'
+--TODO: Plug 'terryma/vim-expand-region'
 -- remove? Plug 'terryma/vim-multiple-cursors'
 -- search for .editorconfig file
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/vim-after-object'
-Plug 'junegunn/vim-easy-align'
+--TODO: Plug 'editorconfig/editorconfig-vim'
+--Plug 'junegunn/vim-after-object'
+--TODO: Plug 'junegunn/vim-easy-align'
 
 
 -- Docs
-Plug 'KabbAmine/zeavim.vim'
+--TODO: Plug 'KabbAmine/zeavim.vim'
 
 
 -- Docker
-Plug 'ekalinin/Dockerfile.vim'
+--TODO: Plug 'ekalinin/Dockerfile.vim'
 
 
 -- Some new colorschemes
--- andreasvc/vim-256noir
--- danilo-augusto/vim-afterglow
--- ayu-theme/ayu-vim
--- nightsense/carbonized
--- ajmwagar/vim-deus
--- jaredgorski/fogbell.vim
--- morhetz/gruvbox
--- NLKNguyen/papercolor-theme
--- fmoralesc/molokayo
--- joshdick/onedark.vim
--- kyoz/purify, { 'rtp': 'vim' }
--- sainnhe/sonokai
--- huyvohcmc/atlas.vim
--- LuRsT/austere.vim
--- reedes/vim-colors-pencil
--- Lokaltog/vim-monotone
+Plug 'andreasvc/vim-256noir'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'ayu-theme/ayu-vim'
+Plug 'nightsense/carbonized'
+Plug 'ajmwagar/vim-deus'
+Plug 'jaredgorski/fogbell.vim'
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'fmoralesc/molokayo'
+Plug('joshdick/onedark.vim', {branch='main'})
+Plug('kyoz/purify', {rtp='vim'})
+Plug 'sainnhe/sonokai'
+Plug 'huyvohcmc/atlas.vim'
+Plug 'LuRsT/austere.vim'
+Plug 'reedes/vim-colors-pencil'
+Plug 'Lokaltog/vim-monotone'
 --
 
 
 -- Misc
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-rsi'
-Plug 'glepnir/dashboard-nvim'
+--TODO: Plug 'junegunn/goyo.vim'
+--TODO: Plug 'tpope/vim-rsi'
+--TODO: Plug 'glepnir/dashboard-nvim'
 
 
 vim.call('plug#end')
 
 
+-- LSP Setup. Must come after plug#end
+require('lsp_setup')
+
+-- Settings:
+require('settings')
+
 --vim.call('neomake#configure#automake("w")')
-
--- vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
-
--- buffer scoped
-vim.opt.autoindent = true
-
--- window-scoped
-vim.opt.cursorline = true
-
--- global scope
-vim.opt.autowrite = true
-
-
--- Settings
--- Necessary for unicode glyphs
-vim.opt.encoding = 'utf-8'
-
--- " Num of pixels inserted between adjacent lines
-vim.opt.linespace=3
-
--- Continue linebreaks at correct indentation
-vim.opt.breakindent  = true
-
--- Wrap lines at 'breakat' char
-vim.opt.linebreak = true
-
--- Autowrite on make/shell commands
-vim.opt.autowrite = true
-
-vim.opt.autoread = true
-
--- Time to wait after ESC. 0 bugs out some keypresses
-vim.opt.timeoutlen=250
-
--- Yanks go on clipboard instead
--- vim.opt.clipboard += unnamed
-
--- Highlight current line
-vim.opt.cursorline = true
-
--- Highlight search
-vim.opt.hlsearch = true
-
--- Wrap lines
-vim.opt.wrap = true
-
--- Show relative line numbers
-vim.opt.relativenumber = true
-
--- vim 7.3+ can create <FILENAME>.un~ for persistent undo
-vim.opt.undofile = true
-
--- With :s/foo/bar/g, globally substitute all matches on line without needing /g
-vim.opt.gdefault = true
-
--- Briefly show where matching paren/bracket is when inserted
-vim.opt.showmatch = true
-
--- Wrap at 79 chars except in paste mode
-vim.opt.textwidth=79
-
--- Wrapping options. See :help fo-table
-vim.opt.formatoptions = 'qrn1'
-
--- Show colored column after 120 chars
-vim.opt.colorcolumn = '120'
-
--- vim.opt.background = 'dark'
-
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.expandtab = true
-
-
-vim.opt.wildignore = {'*/cache/*', '*/tmp/*'}
-
-vim.opt.errorformat = vim.opt.errorformat + '%f|%l col %c|%m'
--- vim.opt.errorformat:append('%f|%l col %c|%m')
-
-vim.opt.listchars = {
-  eol = '',
-  tab = '->',
-  trail = '?',
-  nbsp = '~',
-  eol = '¬'
-}
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.incsearch = true
-
-vim.o.hidden = true
-vim.o.history = 5000
-
-vim.o.shiftwidth = vim.o.tabstop
-
 
 -- Enable colorscheme
 -- vim.cmd('colorscheme molokai')
@@ -229,53 +148,7 @@ vim.cmd [[
   command! Hello echom "hello!!"
 ]]
 
-
-local map = vim.api.nvim_set_keymap
-
--- Fast file-saving
--- map('n', '<Leader>w', ':write<CR>', {noremap = true})
-
-local map2 = function(key)
-  -- get the extra options
-  local opts = {noremap = true}
-  for i, v in pairs(key) do
-    if type(i) == 'string' then opts[i] = v end
-  end
-
-  -- basic support for buffer-scoped keybindings
-  local buffer = opts.buffer
-  opts.buffer = nil
-
-  if buffer then
-    vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
-  else
-    vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
-  end
-end
-
-
-map2 {'n', '<Leader>w', ':write<CR>'}
-
-
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-_G.smart_tab = function()
-  if vim.fn.pumvisible() == 1 then
-    return t'<C-n>'
-  else
-    return t'<Tab>'
-  end
-end
-
-vim.api.nvim_set_keymap(
-  'i',
-  '<Tab>',
-  'v:lua.smart_tab()',
-  {noremap = true, expr = true}
-)
-
+require('binds')
 -- can also load from regular vim script
 -- vim.cmd 'source ~/.config/nvim/keymap.vim'
 

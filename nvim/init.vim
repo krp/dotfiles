@@ -35,8 +35,6 @@ endif
 
 "call plug#begin('~/.config/nvim/plugged')
 
-" Lua functions
-"Plug 'nvim-lua/plenary.nvim'
 "
 "" Colors
 "Plug 'krp/molokai.vim'
@@ -224,7 +222,7 @@ nmap <leader>, :set list!<cr>
 nnoremap <leader>W :%s/\s\+%//<cr>:let @/=''<cr>
 
 " Add support for 'after' designated chars. (See junegunn/vim-after-object)
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+"TODO: Reenable autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 " (junegunn/vim-easy-align) in visual-mode only (see docs for normal mode)
 xmap ga <Plug>(EasyAlign)
@@ -258,7 +256,7 @@ set laststatus=2
 " soft, medium, hard
 " let g:gruvbox_contrast = hard
 
-colorscheme molokai
+colorscheme molokai  " good in Python but kinda sucks for Rust & Go
 
 
 """ Crap to be migrated / double-checked from Mac config
@@ -267,22 +265,21 @@ colorscheme molokai
 " Plug 'nvim-lua/completion-nvim'
 
 
-" colorscheme 256_noir  " Ok.
-" colorscheme afterglow  " Ok.
+" colorscheme 256_noir  " Nice simple black & white with red integers.
+" colorscheme afterglow  " Ok in terminal, not great.
 "let ayucolor="dark"
 "colorscheme ayu  " Possibly not working
-" colorscheme carbonized-dark  " Has some pretty crazy cursor, status line, and
+" colorscheme carbonized-dark  " Kinda crap. Has some pretty crazy cursor, status line, and
 " number column highlighting.
 "colorscheme deus  " Looks identical to gruvbox? Ok 
 " colorscheme fogbell  " Not bad for monochrome
-" colorscheme gruvbox  " A bit boring
-" colorscheme papercolor  " Ok. Quite nice in Rust
-" colorscheme molokayo  " Not bad molokai alternative
-" colorscheme onedark  " Ok, not great.
-" colorscheme purify  " Probably not working. Nice to have italic
-" variables/property names.
-"colorscheme sonokai  " Muted molokai
-" colorscheme atlas  " Might be ok for writing? Sucks for coding.
-" colorscheme austere  " Boring but ok grayscale.
+" colorscheme gruvbox  " Ok but a bit boring
+" colorscheme PaperColor  " Ok. Quite nice in Rust. light and dark backgrounds.
+" colorscheme molokayo  " Not bad molokai alternative. better w/ Rust than Go.
+" colorscheme onedark  " Ok grey background, rest not great.
+" colorscheme purify  " Italic comments. Ugly underlines in Rust. italic keywords in python.
+" colorscheme sonokai  " Muted molokai. Ok but a bit boring.
+" colorscheme atlas  " Monochrome. Might be ok for writing? Sucks for coding.
+" colorscheme austere  " Boring grayscale.
 " colorscheme pencil  " Potentially ok base if tweaked.
-"colorscheme monotone  " Ok use of italic. Nice grey.
+" colorscheme monotone  " Ok use of italic. Nice grey. Similar to atlas
