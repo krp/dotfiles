@@ -95,4 +95,10 @@ vim.o.history = 5000
 
 vim.o.shiftwidth = vim.o.tabstop
 
+-- coc.nvim settings
+vim.opt.cmdheight = 2
+vim.opt.updatetime = 200
+-- vim.opt.shortmess += 'c'
+vim.opt.signcolumn = 'number'
+
 

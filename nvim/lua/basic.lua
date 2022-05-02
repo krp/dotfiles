@@ -18,8 +18,14 @@ vim.g.mapleader = ' '
 -- lua helpers
 Plug 'nvim-lua/plenary.nvim'
 
--- LSP
+-- LSP: Further configuration after plug#end
 Plug 'neovim/nvim-lspconfig'
+
+-- Completion
+Plug('neoclide/coc.nvim', {branch= 'release'})
+
+-- Telescope
+Plug 'nvim-telescope/telescope.nvim'
 
 -- Colors
 Plug 'krp/molokai.vim'
@@ -33,18 +39,18 @@ Plug 'tiagovla/tokyodark.nvim'
 
 
 -- File management
---TODO: Plug('scrooloose/nerdtree', {on= 'NERDTreeToggle'})
+Plug('scrooloose/nerdtree', {on= 'NERDTreeToggle'})
 
--- Plug('junegunn/fzf', {dir: '~/.fzf', do: './install --all'})
---TODO: Plug('junegunn/fzf', {['do'] = '-> fzf#install()'})
---TODO: Plug 'junegunn/fzf.vim'
+-- FZF / Fuzzy Finder
+Plug('junegunn/fzf', {['do'] = '-> fzf#install()'})
+Plug 'junegunn/fzf.vim'
 
 -- and this
 -- Plug 'justinmk/vim-gtfo'
 
 -- Treesitter
 -- Then use TSInstall <language> to use. See repo for languages
---TODO: Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
 -- Syntax
 --TODO: Plug 'pangloss/vim-javascript'
@@ -133,6 +139,9 @@ vim.call('plug#end')
 
 -- LSP Setup. Must come after plug#end
 require('lsp_setup')
+
+-- Treesitter Setup
+require('treesitter_setup')
 
 -- Settings:
 require('settings')
