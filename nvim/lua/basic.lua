@@ -32,6 +32,7 @@ Plug 'krp/molokai.vim'
 -- styles: nightfox, nordfox, dayfox, dawnfox, duskfox, randfox
 Plug 'EdenEast/nightfox.nvim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'rmehri01/onenord.nvim'
 Plug 'wilmanbarrios/palenight.nvim'
 -- Plug 'luissiacc/gruvbox-baby'
 Plug 'embark-theme/vim'
@@ -160,4 +161,9 @@ vim.cmd [[
 require('binds')
 -- can also load from regular vim script
 -- vim.cmd 'source ~/.config/nvim/keymap.vim'
+
+-- Theme settings
+local theme = require('theme')
+
+theme.init()
 

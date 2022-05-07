@@ -22,7 +22,6 @@
 " easy switch between / preview of colorschemes
 " nice default colorschemes
 " easy working with git
-" modular config files
 "
 "
 "let mapleader = ' '
@@ -312,7 +311,8 @@ set laststatus=2
 " soft, medium, hard
 " let g:gruvbox_contrast = hard
 
-colorscheme molokai  " good in Python but kinda sucks for Rust & Go
+"colorscheme molokai  " good in Python but kinda sucks for Rust & Go
+colorscheme onenord  " good in Python but kinda sucks for Rust & Go
 
 
 """ Crap to be migrated / double-checked from Mac config
