@@ -57,10 +57,39 @@ EOF
 
 
 "" " Settings
+" Airline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='simple'
+" let g:airline_theme='simple'
+let g:airline_theme='base16_monokai'
+
+" Dashboard
+let g:dashboard_default_executive = "fzf"
+let g:dashboard_custom_shortcut={
+\ 'last_session'       : 'SPC s l',
+\ 'find_history'       : 'SPC f h',
+\ 'find_file'          : 'SPC f f',
+\ 'new_file'           : 'SPC c n',
+\ 'change_colorscheme' : 'SPC t c',
+\ 'find_word'          : 'SPC f a',
+\ 'book_marks'         : 'SPC f b',
+\ }
+
+" vim.g.dashboard_preview_command = 'cat'
+" let g:dashboard_preview_command = 'bat'
+" let g:dashboard_preview_command = 'cat'
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
 let g:gitgutter_sign_removed_first_line = "^_"
+
+" NERDTree
 let g:NERDTreeIndicatorMapCustom = {
   \ "Modified"  : "M",
   \ "Staged"    : "✚",
@@ -72,7 +101,11 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Clean"     : "C",
   \ "Unknown"   : "?"
   \ }
+
+" Disable jsx ext required for JSX highlighting. Probably no longer needed with
+" treesitter
 let g:jsx_ext_required=0
+
 " Rust
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH="$HOME/.config/nvim/plugged/rust/src"
@@ -311,8 +344,8 @@ set laststatus=2
 " soft, medium, hard
 " let g:gruvbox_contrast = hard
 
-"colorscheme molokai  " good in Python but kinda sucks for Rust & Go
-colorscheme onenord  " good in Python but kinda sucks for Rust & Go
+colorscheme molokai  " good in Python but kinda sucks for Rust & Go
+"colorscheme onenord
 
 
 """ Crap to be migrated / double-checked from Mac config

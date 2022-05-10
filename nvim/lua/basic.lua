@@ -9,7 +9,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- depends on neovim v0.6+
-print('hello from ~/.config/nvim/lua/basic.lua')
+--print('hello from ~/.config/nvim/lua/basic.lua')
 
 
 vim.g.mapleader = ' '
@@ -26,18 +26,6 @@ Plug('neoclide/coc.nvim', {branch= 'release'})
 
 -- Telescope
 Plug 'nvim-telescope/telescope.nvim'
-
--- Colors
-Plug 'krp/molokai.vim'
--- styles: nightfox, nordfox, dayfox, dawnfox, duskfox, randfox
-Plug 'EdenEast/nightfox.nvim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rmehri01/onenord.nvim'
-Plug 'wilmanbarrios/palenight.nvim'
--- Plug 'luissiacc/gruvbox-baby'
-Plug 'embark-theme/vim'
-Plug 'tiagovla/tokyodark.nvim'
-
 
 -- File management
 Plug('scrooloose/nerdtree', {on= 'NERDTreeToggle'})
@@ -66,6 +54,10 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 --TODO: Plug 'dart-lang/dart-vim-plugin'
 --TODO: Plug 'thosakwe/vim-flutter'
 
+
+-- Languages
+Plug('fatih/vim-go', {['do'] = ':GoUpdateBinaries' })
+
 -- Plug 'posva/vim-vue'
 
 
@@ -82,10 +74,13 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 -- Plug 'lewis6991/gitsigns.nvim'
 -- Plug 'junegunn/gv.vim'
 
+-- Notifications
+Plug 'rcarriga/nvim-notify'
+
 
 -- Status Bar
---TODO: Reenable Plug 'vim-airline/vim-airline'
---TODO: Reenable Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
 -- Movement
@@ -109,6 +104,18 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 --TODO: Plug 'ekalinin/Dockerfile.vim'
 
 
+-- Colors
+Plug 'krp/molokai.vim'
+-- styles: nightfox, nordfox, dayfox, dawnfox, duskfox, randfox
+Plug 'EdenEast/nightfox.nvim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'rmehri01/onenord.nvim'
+Plug 'wilmanbarrios/palenight.nvim'
+-- Plug 'luissiacc/gruvbox-baby'
+Plug 'embark-theme/vim'
+Plug 'tiagovla/tokyodark.nvim'
+
+
 -- Some new colorschemes
 Plug 'andreasvc/vim-256noir'
 Plug 'danilo-augusto/vim-afterglow'
@@ -130,9 +137,10 @@ Plug 'Lokaltog/vim-monotone'
 
 
 -- Misc
---TODO: Plug 'junegunn/goyo.vim'
+-- 'Focus' plugin. :Goyo
+Plug 'junegunn/goyo.vim'
 --TODO: Plug 'tpope/vim-rsi'
---TODO: Plug 'glepnir/dashboard-nvim'
+Plug 'glepnir/dashboard-nvim'
 
 
 vim.call('plug#end')
@@ -167,3 +175,8 @@ local theme = require('theme')
 
 theme.init()
 
+
+-- require("notify")("My super important message")
+vim.notify = require("notify")
+
+require("testplugin")

@@ -1,4 +1,4 @@
-print('loading theme.lua')
+--print('loading theme.lua')
 local _M = {}
 
 _M.colors = {
@@ -98,7 +98,7 @@ _M.init = function()
     end
 end
 
-print('finished loading theme.lua')
+--print('finished loading theme.lua')
 return _M
 
 

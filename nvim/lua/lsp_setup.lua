@@ -26,9 +26,9 @@ require('lspconfig').dockerls.setup{}
 -- Dependencies:
 --  go install github.com/nametake/golangci-lint-langserver@latest
 --  go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.1
-require('lspconfig').golangci_lint_ls.setup{}
+-- require('lspconfig').golangci_lint_ls.setup{}
 -- Or: go install golang.org/x/tools/gopls@latest
--- require('lspconfig').gopls.setup{}
+require('lspconfig').gopls.setup{}
 
 -- Please
 -- Dependencies: plz

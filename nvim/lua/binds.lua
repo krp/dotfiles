@@ -1,4 +1,4 @@
-print('loading binds')
+--print('loading binds')
 
 local map = vim.api.nvim_set_keymap
 
@@ -46,4 +46,4 @@ vim.api.nvim_set_keymap(
   {noremap = true, expr = true}
 )
 
-print('finished loading binds')
+--print('finished loading binds')

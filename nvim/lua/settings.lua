@@ -1,4 +1,4 @@
-print('loading settings')
+--print('loading settings')
 -- vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
 
 -- buffer scoped
