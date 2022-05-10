@@ -58,10 +58,10 @@ NeoBundle 'scrooloose/nerdcommenter' " Smart commenting out of code
 map <leader>' :ConqueTermSplit bpython<CR>
 NeoBundle 'tpope/vim-surround'      " Adds additional surround functionality
 NeoBundle 'tpope/vim-repeat' " Smarter repeat using .
-NeoBundle 'krisrp/vim-sensible'     " Sane default. tpope fork w/ additions.
-NeoBundle 'krisrp/conque'       " Run programs inside buffer
+NeoBundle 'krp/vim-sensible'     " Sane default. tpope fork w/ additions.
+NeoBundle 'krp/conque'       " Run programs inside buffer
 
-NeoBundle 'krisrp/molokai.vim'      " #1 colorscheme
+NeoBundle 'krp/molokai.vim'      " #1 colorscheme
 NeoBundle 'evanmiller/nginx-vim-syntax'
 
 " Python-mode. Additional python features.
@@ -88,7 +88,7 @@ let g:pymode_options_max_line_length = 120
 
 
 " Rainbow Parentheses. Consider switching to junegunn's maintained fork.
-NeoBundle 'krisrp/rainbow_parentheses.vim'
+NeoBundle 'krp/rainbow_parentheses.vim'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'      " Fuzzy file/buffer/mru/tag finder.
 let g:ctrlp_map = '<leader>t'
