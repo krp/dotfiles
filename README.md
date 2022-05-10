@@ -42,3 +42,4 @@ Clone to ~/dotfiles and create symlinks. nvimrc goes in ~/.config/nvim/init.vim
 * [eg](https://github.com/srsudar/eg) - `pip install eg`
 * [navi](https://github.com/denisidoro/navi) - `cargo install --locked navi`
 * [kb](https://github.com/gnebbia/kb) - `pip install kb-manager`
+* [ripgrep](https://github.com/BurntSushi/ripgrep) - `cargo install ripgrep`
