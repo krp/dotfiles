@@ -59,6 +59,13 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
 
 -- Languages
+
+-- Commenting
+Plug('b3nj5m1n/kommentary', {branch= 'main'})
+-- TODO: Will have to disable leader-c fzf shortcut later
+-- Old classic: Plug 'preservim/nerdcommenter'
+
+-- Go
 Plug('fatih/vim-go', {['do'] = ':GoUpdateBinaries' })
 
 -- Plug 'posva/vim-vue'
