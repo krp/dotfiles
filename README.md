@@ -5,6 +5,12 @@ vimrc requires Plug for plugin management: https://github.com/junegunn/vim-plug
 Clone to ~/dotfiles and create symlinks. nvimrc goes in ~/.config/nvim/init.vim
 
 
+### TODO:
+* Both zsh & bash configs
+* Both neovim & (old) vim config for systems w/o neovim (possibly lightweight
+  install script when full devenv isn't required)
+
+
 ### Programming Languages
 
 * Python
@@ -18,6 +24,8 @@ Clone to ~/dotfiles and create symlinks. nvimrc goes in ~/.config/nvim/init.vim
 * zsh
 * tmux
 * Docker
+
+* Window Manager (currently awesomewm)
 
 ### MacOS Utilities
 * Homebrew
