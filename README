@@ -3,3 +3,34 @@
 vimrc requires Plug for plugin management: https://github.com/junegunn/vim-plug
 
 Clone to ~/dotfiles and create symlinks. nvimrc goes in ~/.config/nvim/init.vim
+
+
+### Programming Languages
+
+* Python
+* Go
+* C (both clang and gcc)
+* Rust
+* TypeScript / deno
+
+
+### Linux Utilities
+* zsh
+* tmux
+* Docker
+
+### MacOS Utilities
+* Homebrew
+
+### Windows Utilities
+* Docker
+
+
+### Additional dependencies
+
+* Plenty to be added here over time, then migrated into a script to autoinstall them.
+
+* [tldr](https://github.com/tldr-pages/tldr) - `pip install tldr`
+* [eg](https://github.com/srsudar/eg) - `pip install eg`
+* [navi](https://github.com/denisidoro/navi) - `cargo install --locked navi`
+* [kb](https://github.com/gnebbia/kb) - `pip install kb-manager`
