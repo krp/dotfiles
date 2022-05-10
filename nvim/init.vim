@@ -3,8 +3,6 @@
 " no intelligent suggestions for importing files
 " no mypy hinting / suggestions on invalid lines - fixed with lsp & coc
 " overly annoying pylint / neomake suggestions
-" ctrl-6 no longer working for switching between recent files
-" no decent fuzzy find
 " no hotkey for running python
 " no AREPL style auto-evaluation of code
 " no decent auto-suggestions (and tabnine sucks)
@@ -114,7 +112,10 @@ let $RUST_SRC_PATH="$HOME/.config/nvim/plugged/rust/src"
 let &showbreak='↪ '
 
 " Mappings
-map <leader>n :NERDTreeToggle<cr>
+" map <leader>n :NERDTreeToggle<cr>
+map <leader>n :NvimTreeToggle<cr>
+
+
 nmap <leader>g :Goyo<cr>
 " Bind 'jj' to Esc. Useful when CapsLock isn't rebound to Esc
 inoremap jj <Esc>
