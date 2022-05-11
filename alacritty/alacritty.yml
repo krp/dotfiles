@@ -886,3 +886,57 @@ font:
 
   # Highlight window damage information.
   #highlight_damage: false
+colors:
+  # COLORSCHEME: tender.yaml
+  # Default colors
+  primary:
+    # hard contrast: background = '0x1d2021'
+    background: '0x282828'
+    foreground: '0xeeeeee'
+
+  # Normal colors
+  normal:
+  # Bright colors
+    black: '0x282828'
+    red: '0xf43753'
+    green: '0xc9d05c'
+    yellow: '0xffc24b'
+    blue: '0xb3deef'
+    magenta: '0xd3b987'
+    cyan: '0x73cef4'
+    white: '0xeeeeee'
+
+  # Bright colors
+  bright:
+    black: '0x4c4c4c'
+    red: '0xf43753'
+    green: '0xc9d05c'
+    yellow: '0xffc24b'
+    blue: '0xb3deef'
+    magenta: '0xd3b987'
+    cyan: '0x73cef4'
+    white: '0xfeffff'
+  cursor:
+    cursor: '#403f53'
+    text: '#fbfbfb'
+  dim:
+    black: '0x000000'
+    red: '0xa90000'
+    green: '0x049f2b'
+    yellow: '0xa3b106'
+    blue: '0x530aba'
+    magenta: '0xbb006b'
+    cyan: '0x433364'
+    white: '0x5f5f5f'
+  search:
+    matches:
+      foreground: '0xb2b2b2'
+      background: '0xb26818'
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
+
+  selection:
+    background: '#f2f2f2'
+    text: '#403f53'
+  indexed_colors: []
